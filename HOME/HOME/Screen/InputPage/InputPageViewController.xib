@@ -11,7 +11,20 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InputPageViewController" customModule="HOME" customModuleProvider="target">
             <connections>
+                <outlet property="mElec_1_1" destination="sIf-ck-NoM" id="yF7-Mw-Kky"/>
+                <outlet property="mElec_1_2" destination="eIw-Kb-vrg" id="FvH-ZY-ZHD"/>
+                <outlet property="mElec_2_2" destination="Fkk-50-Pwi" id="e1Y-h7-ac3"/>
+                <outlet property="mElec_3_1" destination="KhK-yv-tmG" id="vJZ-rg-TEM"/>
+                <outlet property="mElec_3_2" destination="J28-u1-ajP" id="8iV-Y6-f35"/>
+                <outlet property="mElec_4_2" destination="TGw-nj-Ihb" id="X6b-az-qdb"/>
                 <outlet property="mShowInputUser" destination="4PD-T3-pJg" id="f06-UM-OP5"/>
+                <outlet property="mWater_1_1" destination="jHT-AH-vEA" id="ioT-Hy-8Ya"/>
+                <outlet property="mWater_1_2" destination="Pr3-n2-cz3" id="yKP-dG-zNd"/>
+                <outlet property="mWater_2_2" destination="Rz2-M7-eWe" id="pg8-Ol-TNK"/>
+                <outlet property="mWater_3_1" destination="8a1-dE-KTz" id="KNe-FR-pEk"/>
+                <outlet property="mWater_3_2" destination="qJj-q1-RfI" id="144-7j-blZ"/>
+                <outlet property="mWater_4_2" destination="i9U-b0-ADu" id="eiI-7J-E2a"/>
+                <outlet property="mainStack" destination="iJM-ji-2ma" id="Ivj-cz-UnZ"/>
                 <outlet property="stack" destination="6yE-TL-d49" id="7jC-hP-BWp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -71,8 +84,8 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v4O-p5-IY0" userLabel="MRoom_1.1" customClass="BaseView" customModule="HOME" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="317" height="156.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phòng 1.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vlm-hL-hG1">
-                                                                    <rect key="frame" x="16" y="16" width="72.5" height="20.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room 1.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vlm-hL-hG1">
+                                                                    <rect key="frame" x="16" y="16" width="67.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -92,6 +105,7 @@
                                                                         <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Previous Value" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sIf-ck-NoM" customClass="BaseTextInput" customModule="HOME" customModuleProvider="target">
                                                                             <rect key="frame" x="92" y="8" width="201" height="30"/>
                                                                             <nil key="textColor"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                                         </textField>
                                                                     </subviews>
@@ -151,8 +165,8 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="okM-pg-bi6" userLabel="MRoom_3.1" customClass="BaseView" customModule="HOME" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="166.5" width="317" height="156.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phòng 1.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GyF-4f-kXF">
-                                                                    <rect key="frame" x="16" y="16" width="72.5" height="20.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room 3.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GyF-4f-kXF">
+                                                                    <rect key="frame" x="16" y="16" width="70" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -172,6 +186,7 @@
                                                                         <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Previous Value" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KhK-yv-tmG" customClass="BaseTextInput" customModule="HOME" customModuleProvider="target">
                                                                             <rect key="frame" x="92" y="8" width="201" height="30"/>
                                                                             <nil key="textColor"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                                         </textField>
                                                                     </subviews>
@@ -231,8 +246,8 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M3T-VB-sG7" userLabel="MRoom_1.2" customClass="BaseView" customModule="HOME" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="333" width="317" height="156.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phòng 1.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ysc-5I-dHb">
-                                                                    <rect key="frame" x="16" y="16" width="72.5" height="20.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room 1.2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ysc-5I-dHb">
+                                                                    <rect key="frame" x="16" y="16" width="70" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -252,6 +267,7 @@
                                                                         <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Previous Value" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eIw-Kb-vrg" customClass="BaseTextInput" customModule="HOME" customModuleProvider="target">
                                                                             <rect key="frame" x="92" y="8" width="201" height="30"/>
                                                                             <nil key="textColor"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                                         </textField>
                                                                     </subviews>
@@ -311,7 +327,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4Z-sf-szA" userLabel="MRoom_2.2" customClass="BaseView" customModule="HOME" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="499.5" width="317" height="156.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phòng 1.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLl-HG-YoR">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room 2.2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLl-HG-YoR">
                                                                     <rect key="frame" x="16" y="16" width="72.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -332,6 +348,7 @@
                                                                         <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Previous Value" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fkk-50-Pwi" customClass="BaseTextInput" customModule="HOME" customModuleProvider="target">
                                                                             <rect key="frame" x="92" y="8" width="201" height="30"/>
                                                                             <nil key="textColor"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                                         </textField>
                                                                     </subviews>
@@ -391,7 +408,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9O9-6q-q9B" userLabel="MRoom_3.2" customClass="BaseView" customModule="HOME" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="666" width="317" height="156.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phòng 1.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lf7-ue-lZn">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room 3.2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lf7-ue-lZn">
                                                                     <rect key="frame" x="16" y="16" width="72.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -412,6 +429,7 @@
                                                                         <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Previous Value" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J28-u1-ajP" customClass="BaseTextInput" customModule="HOME" customModuleProvider="target">
                                                                             <rect key="frame" x="92" y="8" width="201" height="30"/>
                                                                             <nil key="textColor"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                                         </textField>
                                                                     </subviews>
@@ -471,8 +489,8 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vj1-IW-8o9" userLabel="MRoom_4.2" customClass="BaseView" customModule="HOME" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="832.5" width="317" height="156.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phòng 1.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBv-cd-Q7o">
-                                                                    <rect key="frame" x="16" y="16" width="72.5" height="20.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room 4.2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBv-cd-Q7o">
+                                                                    <rect key="frame" x="16" y="16" width="73" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -492,6 +510,7 @@
                                                                         <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Previous Value" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TGw-nj-Ihb" customClass="BaseTextInput" customModule="HOME" customModuleProvider="target">
                                                                             <rect key="frame" x="92" y="8" width="201" height="30"/>
                                                                             <nil key="textColor"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                                         </textField>
                                                                     </subviews>
@@ -566,6 +585,9 @@
                                                                     <state key="normal" title="Save ">
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </state>
+                                                                    <connections>
+                                                                        <action selector="saveButton:" destination="-1" eventType="touchUpInside" id="Jr8-O7-Uxc"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DyG-42-tSF" customClass="BaseButton" customModule="HOME" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="65" width="317" height="55"/>

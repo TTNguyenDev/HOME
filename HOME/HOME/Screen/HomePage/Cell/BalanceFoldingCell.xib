@@ -98,6 +98,9 @@
                 <userDefinedRuntimeAttribute type="number" keyPath="itemCount">
                     <integer key="value" value="3"/>
                 </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="backViewColor">
+                    <color key="value" red="0.37129771709442139" green="0.2894669771194458" blue="0.59890180826187134" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="containerView" destination="S9T-Z7-Zwf" id="UTh-TM-8Wi"/>

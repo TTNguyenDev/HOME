@@ -44,7 +44,7 @@ class HomeViewController: BaseViewController {
         cellHeights = Array(repeating: Const.closeCellHeight, count: Const.rowsCount)
         tableView.estimatedRowHeight = Const.closeCellHeight
         tableView.rowHeight = UITableView.automaticDimension
-        self.tableView.backgroundColor = UIColor(patternImage: UIImage(named: "wwww")!)
+        self.tableView.backgroundColor = UIColor(patternImage: UIImage(named: "blurBackground")!)
     }
 }
 

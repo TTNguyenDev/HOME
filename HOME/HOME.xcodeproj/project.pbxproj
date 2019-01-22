@@ -22,6 +22,8 @@
 		B57C27F921F5F65B0095AC00 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57C27F821F5F65B0095AC00 /* BaseButton.swift */; };
 		B58DB76021F5F8E900927F28 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58DB75F21F5F8E900927F28 /* TitleView.swift */; };
 		B58DB76F21F5FFB700927F28 /* BaseTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58DB76E21F5FFB700927F28 /* BaseTextInput.swift */; };
+		B59E0B2E21F74B81009E2A71 /* minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-dark-purple.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B59E0B2D21F74B81009E2A71 /* minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-dark-purple.jpg */; };
+		B59E0B3021F74BC3009E2A71 /* minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-light-blue-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B59E0B2F21F74BC3009E2A71 /* minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-light-blue-2.jpg */; };
 		B5FAB27421F47CBE006665B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FAB27321F47CBE006665B3 /* AppDelegate.swift */; };
 		B5FAB27B21F47CBF006665B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5FAB27A21F47CBF006665B3 /* Assets.xcassets */; };
 		B5FAB27E21F47CBF006665B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5FAB27C21F47CBF006665B3 /* LaunchScreen.storyboard */; };
@@ -73,6 +75,8 @@
 		B57C27F821F5F65B0095AC00 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		B58DB75F21F5F8E900927F28 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		B58DB76E21F5FFB700927F28 /* BaseTextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextInput.swift; sourceTree = "<group>"; };
+		B59E0B2D21F74B81009E2A71 /* minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-dark-purple.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-dark-purple.jpg"; sourceTree = "<group>"; };
+		B59E0B2F21F74BC3009E2A71 /* minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-light-blue-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-light-blue-2.jpg"; sourceTree = "<group>"; };
 		B5FAB27021F47CBE006665B3 /* HOME.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HOME.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5FAB27321F47CBE006665B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5FAB27A21F47CBF006665B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -261,6 +265,8 @@
 		B5FAB2AE21F496BF006665B3 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				B59E0B2F21F74BC3009E2A71 /* minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-light-blue-2.jpg */,
+				B59E0B2D21F74B81009E2A71 /* minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-dark-purple.jpg */,
 				B5FAB27321F47CBE006665B3 /* AppDelegate.swift */,
 				B5FAB27A21F47CBF006665B3 /* Assets.xcassets */,
 				B5FAB27C21F47CBF006665B3 /* LaunchScreen.storyboard */,
@@ -351,9 +357,11 @@
 				B5FAB2B921F49C31006665B3 /* InputPageViewController.xib in Resources */,
 				B5FAB27B21F47CBF006665B3 /* Assets.xcassets in Resources */,
 				B5FAB28A21F47D78006665B3 /* IntroViewController.xib in Resources */,
+				B59E0B3021F74BC3009E2A71 /* minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-light-blue-2.jpg in Resources */,
 				B5492B9D21F7071D00A3E8E3 /* CalendarFoldingCell.xib in Resources */,
 				B5FAB2B421F49C03006665B3 /* MePageViewController.xib in Resources */,
 				B5492BA421F7132F00A3E8E3 /* StatusFoldingCell.xib in Resources */,
+				B59E0B2E21F74B81009E2A71 /* minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-dark-purple.jpg in Resources */,
 				B5492B9321F7009500A3E8E3 /* HomeViewController.xib in Resources */,
 				B561D64721F5D08B0003A99D /* GoogleService-Info.plist in Resources */,
 				B5492B9921F701B300A3E8E3 /* BalanceFoldingCell.xib in Resources */,
