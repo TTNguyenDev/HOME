@@ -11,17 +11,14 @@ import FoldingCell
 
 class StatusFoldingCell: FoldingCell {
 
-    var number: Int = 0 {
-        didSet {
-            
-        }
-    }
     override func awakeFromNib() {
-        
+        super.awakeFromNib()
         foregroundView.layer.cornerRadius = 10
         foregroundView.layer.masksToBounds = true
         
-        super.awakeFromNib()
+        Bussiness.manage.ditInit {
+            print(Bussiness.manage.getAllPaper())
+        }
     }
     
     override func animationDuration(_ itemIndex:NSInteger, type:FoldingCell.AnimationType)-> TimeInterval {

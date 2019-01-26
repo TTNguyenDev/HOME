@@ -45,7 +45,7 @@
                                     <constraint firstItem="Be9-WZ-F8V" firstAttribute="centerX" secondItem="PKB-ba-iVZ" secondAttribute="centerX" id="lyp-KM-fvq"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dec-Q2-5cO" userLabel="MDetaillBox">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dec-Q2-5cO" userLabel="MDetaillBox" customClass="BaseFoldingView" customModule="HOME" customModuleProvider="target">
                                 <rect key="frame" x="119" y="0.0" width="357" height="130"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Process:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksZ-Ca-05x">

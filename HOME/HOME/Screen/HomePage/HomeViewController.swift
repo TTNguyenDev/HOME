@@ -6,19 +6,27 @@
 //  Copyright © 2019 TT Nguyen. All rights reserved.
 //
 
+/*
+HOME:
++ Balance(total, month label) -> Load database
++ Daysleft: Gọi hàm local
++ My Process:  hiển thị mRecieved / mTotalBalanceOfMonth
+               +(touchUpInside) Hiển thị trạng thái của mỗi phòng, phòng nào xong thì hiện màu green, chưa thì red, slider hiển thị % hoàn thành so với mTotalOfEachRoom.
+               + Tích hợp nút edit để sửa lại trạng thái, nếu một user đóng tiền, sẽ có nút hoàn thành, hoặc tuỳ chỉnh(điền số tiền đã đóng, và số tiền còn thiếu)
+ 
+ 
+*/
+
 import UIKit
 import FoldingCell
+import NVActivityIndicatorView
 
-class HomeViewController: BaseViewController {
-    
-    
-    
-    
+class HomeViewController: BaseViewController, NVActivityIndicatorViewable{
     
     @IBOutlet var tableView: UITableView!
     
     enum Const {
-        static let closeCellHeight: CGFloat = 170
+        static let closeCellHeight: CGFloat = 150
         static let openCellHeight: CGFloat = 350
         static let rowsCount = 3
     }
@@ -27,29 +35,43 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-//        backgroundImage.image = UIImage(named: "wwww")
-//        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
-//        mContentView.insertSubview(backgroundImage, at: 0)
-        setup()
+        setupTableView()
+        setupIndicator()
     }
     
-    private func setup() {
+    fileprivate func setupIndicator() {
+        let size = CGSize(width: 30, height: 30)
+        let indicatorType = NVActivityIndicatorType.init(rawValue: 8)
+        
+        startAnimating(size, message: "Loading...", messageFont: UIFont.boldSystemFont(ofSize: 20), type: indicatorType, color: .red, padding: 2, displayTimeThreshold: 2, minimumDisplayTime: 2, backgroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), textColor: .red, fadeInAnimation: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
+            NVActivityIndicatorPresenter.sharedInstance.setMessage("Authenticating...")
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+            self.stopAnimating(nil)
+        }
+    }
+    
+    private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "BalanceFoldingCell", bundle: nil), forCellReuseIdentifier: "BalanceFoldingCell")
-        tableView.register(UINib(nibName: "CalendarFoldingCell", bundle: nil), forCellReuseIdentifier: "CalendarFoldingCell")
-        tableView.register(UINib(nibName: "StatusFoldingCell", bundle: nil), forCellReuseIdentifier: "StatusFoldingCell")
         tableView.separatorColor = .clear
         cellHeights = Array(repeating: Const.closeCellHeight, count: Const.rowsCount)
         tableView.estimatedRowHeight = Const.closeCellHeight
         tableView.rowHeight = UITableView.automaticDimension
-        self.tableView.backgroundColor = UIColor(patternImage: UIImage(named: "blurBackground")!)
+        self.tableView.backgroundColor = .white
+        
+        tableView.register(UINib(nibName: "BalanceFoldingCell", bundle: nil), forCellReuseIdentifier: "BalanceFoldingCell")
+        tableView.register(UINib(nibName: "CalendarFoldingCell", bundle: nil), forCellReuseIdentifier: "CalendarFoldingCell")
+        tableView.register(UINib(nibName: "StatusFoldingCell", bundle: nil), forCellReuseIdentifier: "StatusFoldingCell")
     }
 }
 
-// MARK: - TableView
 
+
+// MARK: - FoldingCellSetup
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return Const.rowsCount
@@ -65,9 +87,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             } else {
                 cell.unfold(true, animated: false, completion: nil)
             }
-            
-            cell.number = indexPath.row
-            
         } else if indexPath.row == 1 {
             guard case let cell as CalendarFoldingCell = cell else {
                 return
@@ -77,8 +96,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             } else {
                 cell.unfold(true, animated: false, completion: nil)
             }
-            
-            cell.number = indexPath.row
         } else {
             guard case let cell as StatusFoldingCell = cell else {
                 return
@@ -88,11 +105,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             } else {
                 cell.unfold(true, animated: false, completion: nil)
             }
-            
-            cell.number = indexPath.row
         }
-        
-        
         cell.backgroundColor = .clear
     }
     

@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class InputPageViewController: BaseViewController {
+    
+    var mUserData = [UserData]()
+    var mPreviousUserData = [UserData]()
     
     //Phòng 1.1
     @IBOutlet var mElec_1_1: BaseTextInput!
@@ -39,8 +43,23 @@ class InputPageViewController: BaseViewController {
     @IBOutlet var mainStack: UIStackView!
     @IBOutlet var stack: UIStackView!
     
+    
+    @IBAction func exportButton(_ sender: Any) {
+        let reviewDataViewController = ReviewDataViewController()
+        navigationController?.pushViewController(reviewDataViewController, animated: true)
+    }
+    
     @IBAction func saveButton(_ sender: Any) {
-       
+        //Save UserData
+        mUserData.append(UserData(roomId: "p1_1", elecValue: Int(mElec_1_1.text!)!, waterValue: Int(mWater_1_1.text!)!))
+        mUserData.append(UserData(roomId: "p1_2", elecValue: Int(mElec_1_2.text!)!, waterValue: Int(mWater_1_2.text!)!))
+        mUserData.append(UserData(roomId: "p2_2", elecValue: Int(mElec_2_2.text!)!, waterValue: Int(mWater_2_2.text!)!))
+        mUserData.append(UserData(roomId: "p3_1", elecValue: Int(mElec_3_1.text!)!, waterValue: Int(mWater_3_1.text!)!))
+        mUserData.append(UserData(roomId: "p3_2", elecValue: Int(mElec_3_2.text!)!, waterValue: Int(mWater_3_2.text!)!))
+        mUserData.append(UserData(roomId: "p4_2", elecValue: Int(mElec_4_2.text!)!, waterValue: Int(mWater_4_2.text!)!))
+        
+        //Calculate
+        Bussiness.manage.calculateWith(previousUserData: mPreviousUserData, userData: mUserData)
         
     }
     
@@ -57,11 +76,37 @@ class InputPageViewController: BaseViewController {
         }, completion: nil)
     }
     
+    fileprivate func DEBUGFUNC() {
+        print(Date.daysLeft())
+        print(Date.getLastMonth())
+        
+        mElec_1_1.text = "13"
+        mElec_3_1.text = "13"
+        mElec_1_2.text = "13"
+        mElec_2_2.text = "13"
+        mElec_3_2.text = "13"
+        mElec_4_2.text = "13"
+        
+        mWater_1_1.text = "13"
+        mWater_3_1.text = "13"
+        mWater_1_2.text = "13"
+        mWater_2_2.text = "13"
+        mWater_3_2.text = "13"
+        mWater_4_2.text = "13"
+    }
+    
+    func presentPreviousUserData() {
+        API.user.observeUserDataWithDate(date: "01_2019", completion: { (previousUserData) in
+            self.mPreviousUserData.append(previousUserData)
+        })
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        DEBUGFUNC()
+        presentPreviousUserData()
     }
-    
 }
 
 extension InputPageViewController {

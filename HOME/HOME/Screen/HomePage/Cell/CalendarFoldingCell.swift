@@ -10,18 +10,21 @@ import UIKit
 import FoldingCell
 
 class CalendarFoldingCell: FoldingCell {
-
-    var number: Int = 0 {
-        didSet {
-            
-        }
-    }
+    
+    
+    @IBOutlet weak var mToday: UILabel!
+    @IBOutlet weak var mDaysLeft: UILabel!
+    
     override func awakeFromNib() {
-        
+        super.awakeFromNib()
         foregroundView.layer.cornerRadius = 10
         foregroundView.layer.masksToBounds = true
-        
-        super.awakeFromNib()
+        presentData()
+    }
+    
+    func presentData() {
+        mDaysLeft.text = String(Date.daysLeft()) +  " days left"
+        mToday.text = "Today: " + Date.getCurrentDate()
     }
     
     override func animationDuration(_ itemIndex:NSInteger, type:FoldingCell.AnimationType)-> TimeInterval {

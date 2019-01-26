@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1A648F7FD0FB57E560C48A0C /* Pods_HOME.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D0F792833B5B2701E65554 /* Pods_HOME.framework */; };
+		B50838C621FC112D00A46932 /* ReviewDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50838C421FC112D00A46932 /* ReviewDataViewController.swift */; };
+		B50838C721FC112D00A46932 /* ReviewDataViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B50838C521FC112D00A46932 /* ReviewDataViewController.xib */; };
 		B5492B9221F7009500A3E8E3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5492B9021F7009500A3E8E3 /* HomeViewController.swift */; };
 		B5492B9321F7009500A3E8E3 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5492B9121F7009500A3E8E3 /* HomeViewController.xib */; };
 		B5492B9821F701B300A3E8E3 /* BalanceFoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5492B9621F701B300A3E8E3 /* BalanceFoldingCell.swift */; };
@@ -22,8 +24,15 @@
 		B57C27F921F5F65B0095AC00 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57C27F821F5F65B0095AC00 /* BaseButton.swift */; };
 		B58DB76021F5F8E900927F28 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58DB75F21F5F8E900927F28 /* TitleView.swift */; };
 		B58DB76F21F5FFB700927F28 /* BaseTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58DB76E21F5FFB700927F28 /* BaseTextInput.swift */; };
-		B59E0B2E21F74B81009E2A71 /* minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-dark-purple.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B59E0B2D21F74B81009E2A71 /* minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-dark-purple.jpg */; };
-		B59E0B3021F74BC3009E2A71 /* minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-light-blue-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B59E0B2F21F74BC3009E2A71 /* minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-light-blue-2.jpg */; };
+		B5A7EB4521F80A070091C0E2 /* BaseFoldingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A7EB4421F80A070091C0E2 /* BaseFoldingView.swift */; };
+		B5A7EB4821F82E100091C0E2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A7EB4721F82E100091C0E2 /* User.swift */; };
+		B5A7EB4A21F831150091C0E2 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A7EB4921F831150091C0E2 /* UserData.swift */; };
+		B5A7EB4D21F83B2F0091C0E2 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A7EB4C21F83B2F0091C0E2 /* DateExtension.swift */; };
+		B5EAED2F21F96F3E0074AE52 /* Manage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EAED2E21F96F3E0074AE52 /* Manage.swift */; };
+		B5EAED3521F97A2D0074AE52 /* Bussiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EAED3421F97A2D0074AE52 /* Bussiness.swift */; };
+		B5EAED3721F989490074AE52 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EAED3621F989490074AE52 /* Const.swift */; };
+		B5EAED3A21F99CB80074AE52 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EAED3921F99CB80074AE52 /* UserApi.swift */; };
+		B5EAED3C21F99CD60074AE52 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EAED3B21F99CD60074AE52 /* API.swift */; };
 		B5FAB27421F47CBE006665B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FAB27321F47CBE006665B3 /* AppDelegate.swift */; };
 		B5FAB27B21F47CBF006665B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5FAB27A21F47CBF006665B3 /* Assets.xcassets */; };
 		B5FAB27E21F47CBF006665B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5FAB27C21F47CBF006665B3 /* LaunchScreen.storyboard */; };
@@ -61,6 +70,8 @@
 /* Begin PBXFileReference section */
 		3D14699FD3A275A0B4E524B8 /* Pods-HOME.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HOME.release.xcconfig"; path = "Pods/Target Support Files/Pods-HOME/Pods-HOME.release.xcconfig"; sourceTree = "<group>"; };
 		59647E9B3F4D290EC89842A3 /* Pods-HOME.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HOME.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HOME/Pods-HOME.debug.xcconfig"; sourceTree = "<group>"; };
+		B50838C421FC112D00A46932 /* ReviewDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDataViewController.swift; sourceTree = "<group>"; };
+		B50838C521FC112D00A46932 /* ReviewDataViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewDataViewController.xib; sourceTree = "<group>"; };
 		B5492B9021F7009500A3E8E3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B5492B9121F7009500A3E8E3 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		B5492B9621F701B300A3E8E3 /* BalanceFoldingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceFoldingCell.swift; sourceTree = "<group>"; };
@@ -75,8 +86,15 @@
 		B57C27F821F5F65B0095AC00 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		B58DB75F21F5F8E900927F28 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		B58DB76E21F5FFB700927F28 /* BaseTextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextInput.swift; sourceTree = "<group>"; };
-		B59E0B2D21F74B81009E2A71 /* minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-dark-purple.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-dark-purple.jpg"; sourceTree = "<group>"; };
-		B59E0B2F21F74BC3009E2A71 /* minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-light-blue-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-light-blue-2.jpg"; sourceTree = "<group>"; };
+		B5A7EB4421F80A070091C0E2 /* BaseFoldingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFoldingView.swift; sourceTree = "<group>"; };
+		B5A7EB4721F82E100091C0E2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B5A7EB4921F831150091C0E2 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		B5A7EB4C21F83B2F0091C0E2 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		B5EAED2E21F96F3E0074AE52 /* Manage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manage.swift; sourceTree = "<group>"; };
+		B5EAED3421F97A2D0074AE52 /* Bussiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bussiness.swift; sourceTree = "<group>"; };
+		B5EAED3621F989490074AE52 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		B5EAED3921F99CB80074AE52 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
+		B5EAED3B21F99CD60074AE52 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		B5FAB27021F47CBE006665B3 /* HOME.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HOME.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5FAB27321F47CBE006665B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5FAB27A21F47CBF006665B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -129,6 +147,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B50838C321FC10BE00A46932 /* ReviewData */ = {
+			isa = PBXGroup;
+			children = (
+				B50838C421FC112D00A46932 /* ReviewDataViewController.swift */,
+				B50838C521FC112D00A46932 /* ReviewDataViewController.xib */,
+			);
+			path = ReviewData;
+			sourceTree = "<group>";
+		};
 		B5492B9521F7019100A3E8E3 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,8 +183,9 @@
 		B561D63A21F592C80003A99D /* BaseView */ = {
 			isa = PBXGroup;
 			children = (
-				B561D63B21F592E80003A99D /* BaseView.swift */,
 				B58DB75F21F5F8E900927F28 /* TitleView.swift */,
+				B561D63B21F592E80003A99D /* BaseView.swift */,
+				B5A7EB4421F80A070091C0E2 /* BaseFoldingView.swift */,
 			);
 			path = BaseView;
 			sourceTree = "<group>";
@@ -186,6 +214,35 @@
 			path = BaseTextInput;
 			sourceTree = "<group>";
 		};
+		B5A7EB4621F82D830091C0E2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B5A7EB4721F82E100091C0E2 /* User.swift */,
+				B5EAED3421F97A2D0074AE52 /* Bussiness.swift */,
+				B5A7EB4921F831150091C0E2 /* UserData.swift */,
+				B5EAED2E21F96F3E0074AE52 /* Manage.swift */,
+				B5EAED3621F989490074AE52 /* Const.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B5A7EB4B21F83A3F0091C0E2 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				B5A7EB4C21F83B2F0091C0E2 /* DateExtension.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		B5EAED3821F99C1C0074AE52 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B5EAED3921F99CB80074AE52 /* UserApi.swift */,
+				B5EAED3B21F99CD60074AE52 /* API.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		B5FAB26721F47CBE006665B3 = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +264,9 @@
 		B5FAB27221F47CBE006665B3 /* HOME */ = {
 			isa = PBXGroup;
 			children = (
+				B5EAED3821F99C1C0074AE52 /* API */,
+				B5A7EB4B21F83A3F0091C0E2 /* Helper */,
+				B5A7EB4621F82D830091C0E2 /* Model */,
 				B5FAB29921F48C17006665B3 /* TabBarConfig */,
 				B5FAB28521F47D3D006665B3 /* Screen */,
 				B561D63921F5927F0003A99D /* Base */,
@@ -265,8 +325,6 @@
 		B5FAB2AE21F496BF006665B3 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				B59E0B2F21F74BC3009E2A71 /* minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-light-blue-2.jpg */,
-				B59E0B2D21F74B81009E2A71 /* minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-dark-purple.jpg */,
 				B5FAB27321F47CBE006665B3 /* AppDelegate.swift */,
 				B5FAB27A21F47CBF006665B3 /* Assets.xcassets */,
 				B5FAB27C21F47CBF006665B3 /* LaunchScreen.storyboard */,
@@ -286,6 +344,7 @@
 		B5FAB2B521F49C10006665B3 /* InputPage */ = {
 			isa = PBXGroup;
 			children = (
+				B50838C321FC10BE00A46932 /* ReviewData */,
 				B5FAB2B621F49C31006665B3 /* InputPageViewController.swift */,
 				B5FAB2B721F49C31006665B3 /* InputPageViewController.xib */,
 			);
@@ -357,11 +416,10 @@
 				B5FAB2B921F49C31006665B3 /* InputPageViewController.xib in Resources */,
 				B5FAB27B21F47CBF006665B3 /* Assets.xcassets in Resources */,
 				B5FAB28A21F47D78006665B3 /* IntroViewController.xib in Resources */,
-				B59E0B3021F74BC3009E2A71 /* minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-light-blue-2.jpg in Resources */,
 				B5492B9D21F7071D00A3E8E3 /* CalendarFoldingCell.xib in Resources */,
 				B5FAB2B421F49C03006665B3 /* MePageViewController.xib in Resources */,
+				B50838C721FC112D00A46932 /* ReviewDataViewController.xib in Resources */,
 				B5492BA421F7132F00A3E8E3 /* StatusFoldingCell.xib in Resources */,
-				B59E0B2E21F74B81009E2A71 /* minimal-gradient-iPhone-X-wallpaper-by-danielghuffman-dark-purple.jpg in Resources */,
 				B5492B9321F7009500A3E8E3 /* HomeViewController.xib in Resources */,
 				B561D64721F5D08B0003A99D /* GoogleService-Info.plist in Resources */,
 				B5492B9921F701B300A3E8E3 /* BalanceFoldingCell.xib in Resources */,
@@ -383,6 +441,8 @@
 				"${BUILT_PRODUCTS_DIR}/ESTabBarController-swift/ESTabBarController_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -392,6 +452,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESTabBarController_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoldingCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,15 +491,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5492B9821F701B300A3E8E3 /* BalanceFoldingCell.swift in Sources */,
+				B5A7EB4D21F83B2F0091C0E2 /* DateExtension.swift in Sources */,
+				B50838C621FC112D00A46932 /* ReviewDataViewController.swift in Sources */,
 				B5FAB2A321F48C2A006665B3 /* ExampleAnimateTipsContentView.swift in Sources */,
+				B5EAED3521F97A2D0074AE52 /* Bussiness.swift in Sources */,
 				B57C27F921F5F65B0095AC00 /* BaseButton.swift in Sources */,
+				B5EAED2F21F96F3E0074AE52 /* Manage.swift in Sources */,
 				B561D63C21F592E80003A99D /* BaseView.swift in Sources */,
 				B5FAB27421F47CBE006665B3 /* AppDelegate.swift in Sources */,
+				B5EAED3721F989490074AE52 /* Const.swift in Sources */,
 				B5492BA321F7132F00A3E8E3 /* StatusFoldingCell.swift in Sources */,
 				B5FAB28921F47D78006665B3 /* IntroViewController.swift in Sources */,
+				B5A7EB4521F80A070091C0E2 /* BaseFoldingView.swift in Sources */,
 				B561D63F21F5BCD20003A99D /* BaseViewController.swift in Sources */,
 				B5492B9C21F7071D00A3E8E3 /* CalendarFoldingCell.swift in Sources */,
+				B5EAED3C21F99CD60074AE52 /* API.swift in Sources */,
+				B5A7EB4821F82E100091C0E2 /* User.swift in Sources */,
+				B5EAED3A21F99CB80074AE52 /* UserApi.swift in Sources */,
 				B58DB76021F5F8E900927F28 /* TitleView.swift in Sources */,
+				B5A7EB4A21F831150091C0E2 /* UserData.swift in Sources */,
 				B5FAB2B821F49C31006665B3 /* InputPageViewController.swift in Sources */,
 				B5FAB2A621F48C2A006665B3 /* ExampleBackgroundContentView.swift in Sources */,
 				B5FAB2B321F49C03006665B3 /* MePageViewController.swift in Sources */,

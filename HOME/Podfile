@@ -6,7 +6,9 @@ target 'HOME' do
   use_frameworks!
   pod "ESTabBarController-swift"
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
   pod 'FoldingCell'
+  pod 'NVActivityIndicatorView'
 
   # Pods for HOME
 

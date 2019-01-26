@@ -10,18 +10,22 @@ import UIKit
 import FoldingCell
 
 class BalanceFoldingCell: FoldingCell {
-
-    var number: Int = 0 {
-        didSet {
-            
-        }
-    }
+    
+    
+    
+    @IBOutlet weak var mTotalBalance: UILabel!
+    
     override func awakeFromNib() {
-        
+        super.awakeFromNib()
         foregroundView.layer.cornerRadius = 10
         foregroundView.layer.masksToBounds = true
-        
-        super.awakeFromNib()
+        presentData()
+    }
+    
+    func presentData() {
+        API.user.observeManageData { (manageData) in
+            self.mTotalBalance.text = String(manageData.mTotalBalanceOfMonth!) + "đ"
+        }
     }
     
     override func animationDuration(_ itemIndex:NSInteger, type:FoldingCell.AnimationType)-> TimeInterval {

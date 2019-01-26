@@ -582,7 +582,7 @@
                                                                         <constraint firstAttribute="height" constant="55" id="9xu-TE-yeB"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                                                    <state key="normal" title="Save ">
+                                                                    <state key="normal" title="Calculate">
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </state>
                                                                     <connections>
@@ -596,6 +596,9 @@
                                                                     <state key="normal" title="Export Data">
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </state>
+                                                                    <connections>
+                                                                        <action selector="exportButton:" destination="-1" eventType="touchUpInside" id="xCg-a1-xgY"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <constraints>

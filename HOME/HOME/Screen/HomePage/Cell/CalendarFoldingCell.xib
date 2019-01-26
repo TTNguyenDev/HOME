@@ -32,13 +32,13 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="0.82320205479452058" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.49411764705882355" blue="0.47450980392156861" alpha="0.82320205479452058" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="2ND-lo-jsf" firstAttribute="centerX" secondItem="Vw4-IL-72q" secondAttribute="centerX" id="7LI-EQ-MR6"/>
                                     <constraint firstItem="2ND-lo-jsf" firstAttribute="centerY" secondItem="Vw4-IL-72q" secondAttribute="centerY" id="mb4-b7-z0v"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dlP-nC-wKU" userLabel="MDetaillBox">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dlP-nC-wKU" userLabel="MDetaillBox" customClass="BaseFoldingView" customModule="HOME" customModuleProvider="target">
                                 <rect key="frame" x="97.5" y="0.0" width="291.5" height="130"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today: 22/01/2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIJ-yi-44u">
@@ -50,7 +50,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 days left" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIi-ev-te8">
                                         <rect key="frame" x="10" y="59.5" width="271.5" height="50.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="42"/>
-                                        <color key="textColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="1" green="0.49411764705882355" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -107,6 +107,8 @@
                 <outlet property="containerViewTop" destination="d0g-JI-qF1" id="aEs-bu-mDT"/>
                 <outlet property="foregroundView" destination="rtt-9Q-v7K" id="SAa-xj-k21"/>
                 <outlet property="foregroundViewTop" destination="Bu7-q7-xBM" id="nqh-c3-tUl"/>
+                <outlet property="mDaysLeft" destination="jIi-ev-te8" id="rVy-Ce-nD1"/>
+                <outlet property="mToday" destination="JIJ-yi-44u" id="Cz7-eX-UXu"/>
             </connections>
             <point key="canvasLocation" x="208.80000000000001" y="367.01649175412297"/>
         </tableViewCell>
