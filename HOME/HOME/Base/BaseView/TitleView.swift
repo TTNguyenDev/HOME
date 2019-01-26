@@ -23,7 +23,7 @@ class TitleView: UIView {
     fileprivate func didInit() {
         self.backgroundColor = #colorLiteral(red: 0.8083478808, green: 0.0325262323, blue: 0.3324780166, alpha: 1)
         self.clipsToBounds = true
-        self.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        self.heightAnchor.constraint(equalToConstant: 60).isActive = true
         self.layer.cornerRadius = 5
     }
     

@@ -41,22 +41,22 @@
                             <rect key="frame" x="0.0" y="0.0" width="357" height="1208"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BQ3-ko-LXz" userLabel="MContentView">
-                                    <rect key="frame" x="0.0" y="0.0" width="357" height="1209"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="357" height="1347"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iJM-ji-2ma" userLabel="MMainStack">
-                                            <rect key="frame" x="20" y="10" width="317" height="1179"/>
+                                            <rect key="frame" x="20" y="10" width="317" height="1317"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hmm-du-bse" userLabel="MTitleBox" customClass="TitleView" customModule="HOME" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="317" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="317" height="188"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input Area" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mjn-Mm-cis">
-                                                            <rect key="frame" x="10" y="10" width="79" height="30"/>
+                                                            <rect key="frame" x="10" y="10" width="79" height="168"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4PD-T3-pJg">
-                                                            <rect key="frame" x="257" y="5" width="40" height="40"/>
+                                                            <rect key="frame" x="257" y="5" width="40" height="178"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="40" id="rMp-zS-238"/>
                                                             </constraints>
@@ -72,14 +72,13 @@
                                                         <constraint firstAttribute="bottom" secondItem="Mjn-Mm-cis" secondAttribute="bottom" constant="10" id="NTX-30-Tb0"/>
                                                         <constraint firstItem="4PD-T3-pJg" firstAttribute="top" secondItem="Hmm-du-bse" secondAttribute="top" constant="5" id="PHA-jq-WyN"/>
                                                         <constraint firstItem="Mjn-Mm-cis" firstAttribute="leading" secondItem="Hmm-du-bse" secondAttribute="leading" constant="10" id="TQb-TG-FsD"/>
-                                                        <constraint firstAttribute="height" constant="50" id="ob7-LC-mwl"/>
                                                         <constraint firstAttribute="bottom" secondItem="4PD-T3-pJg" secondAttribute="bottom" constant="5" id="p2z-cR-YQR"/>
                                                         <constraint firstAttribute="trailing" secondItem="4PD-T3-pJg" secondAttribute="trailing" constant="20" id="t9T-ev-DGH"/>
                                                         <constraint firstItem="Mjn-Mm-cis" firstAttribute="top" secondItem="Hmm-du-bse" secondAttribute="top" constant="10" id="zkz-Q0-RhW"/>
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6yE-TL-d49">
-                                                    <rect key="frame" x="0.0" y="60" width="317" height="989"/>
+                                                    <rect key="frame" x="0.0" y="198" width="317" height="989"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v4O-p5-IY0" userLabel="MRoom_1.1" customClass="BaseView" customModule="HOME" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="317" height="156.5"/>
@@ -570,7 +569,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tMj-02-Zt0" userLabel="MSaveBox">
-                                                    <rect key="frame" x="0.0" y="1059" width="317" height="120"/>
+                                                    <rect key="frame" x="0.0" y="1197" width="317" height="120"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YPJ-eb-oqr">
                                                             <rect key="frame" x="0.0" y="0.0" width="317" height="120"/>

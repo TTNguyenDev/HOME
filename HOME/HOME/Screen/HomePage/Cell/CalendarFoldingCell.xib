@@ -11,21 +11,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="516" id="KGk-i7-Jjw" customClass="CalendarFoldingCell" customModule="HOME" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="409" height="516"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="735" id="KGk-i7-Jjw" customClass="CalendarFoldingCell" customModule="HOME" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="431" height="735"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="409" height="515.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="431" height="734.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rtt-9Q-v7K" userLabel="MDateLeft" customClass="RotatedView" customModule="FoldingCell">
-                        <rect key="frame" x="10" y="20" width="389" height="130"/>
+                        <rect key="frame" x="10" y="20" width="411" height="130"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vw4-IL-72q" userLabel="MIconBox">
-                                <rect key="frame" x="0.0" y="0.0" width="97.5" height="130"/>
+                                <rect key="frame" x="0.0" y="0.0" width="103" height="130"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" translatesAutoresizingMaskIntoConstraints="NO" id="2ND-lo-jsf">
-                                        <rect key="frame" x="28.5" y="45" width="40" height="40"/>
+                                        <rect key="frame" x="31.5" y="45" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="LFa-kw-E53"/>
                                             <constraint firstAttribute="height" constant="40" id="qrr-eo-Yub"/>
@@ -39,7 +39,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dlP-nC-wKU" userLabel="MDetaillBox" customClass="BaseFoldingView" customModule="HOME" customModuleProvider="target">
-                                <rect key="frame" x="97.5" y="0.0" width="291.5" height="130"/>
+                                <rect key="frame" x="103" y="0.0" width="308" height="130"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today: 22/01/2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIJ-yi-44u">
                                         <rect key="frame" x="10" y="10" width="150" height="22"/>
@@ -48,7 +48,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 days left" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIi-ev-te8">
-                                        <rect key="frame" x="10" y="59.5" width="271.5" height="50.5"/>
+                                        <rect key="frame" x="10" y="59.5" width="288" height="50.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="42"/>
                                         <color key="textColor" red="1" green="0.49411764705882355" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -78,13 +78,13 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aEJ-cS-rgc" customClass="RotatedView" customModule="FoldingCell">
-                        <rect key="frame" x="10" y="200" width="389" height="500"/>
+                        <rect key="frame" x="10" y="200" width="411" height="500"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kqj-no-sJP" userLabel="titleBox">
-                                <rect key="frame" x="0.0" y="0.0" width="389" height="60"/>
+                                <rect key="frame" x="0.0" y="0.0" width="411" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWR-a9-AJu">
-                                        <rect key="frame" x="0.0" y="0.0" width="389" height="60"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWR-a9-AJu">
+                                        <rect key="frame" x="0.0" y="0.0" width="411" height="60"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -99,11 +99,21 @@
                                     <constraint firstAttribute="trailing" secondItem="oWR-a9-AJu" secondAttribute="trailing" id="xiP-oR-Boa"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5kz-nK-dbq" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="30.5" y="75" width="350" height="350"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="D86-eS-4ED"/>
+                                    <constraint firstAttribute="height" constant="350" id="ceN-WI-hqB"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.94509803921568625" blue="0.96470588235294119" alpha="0.90592893839999999" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Kqj-no-sJP" secondAttribute="trailing" id="HwT-La-cwJ"/>
+                            <constraint firstItem="5kz-nK-dbq" firstAttribute="centerY" secondItem="aEJ-cS-rgc" secondAttribute="centerY" id="J1Z-um-eAe"/>
                             <constraint firstItem="Kqj-no-sJP" firstAttribute="leading" secondItem="aEJ-cS-rgc" secondAttribute="leading" id="d04-bq-azy"/>
+                            <constraint firstItem="5kz-nK-dbq" firstAttribute="centerX" secondItem="aEJ-cS-rgc" secondAttribute="centerX" id="kH0-cw-vi7"/>
                             <constraint firstAttribute="height" constant="500" id="o1b-d7-cdL"/>
                             <constraint firstItem="Kqj-no-sJP" firstAttribute="top" secondItem="aEJ-cS-rgc" secondAttribute="top" id="wf8-A8-7wP"/>
                         </constraints>
@@ -132,9 +142,10 @@
                 <outlet property="foregroundView" destination="rtt-9Q-v7K" id="SAa-xj-k21"/>
                 <outlet property="foregroundViewTop" destination="Bu7-q7-xBM" id="nqh-c3-tUl"/>
                 <outlet property="mDaysLeft" destination="jIi-ev-te8" id="rVy-Ce-nD1"/>
+                <outlet property="mPieChartContainerView" destination="5kz-nK-dbq" id="dBU-H2-5cI"/>
                 <outlet property="mToday" destination="JIJ-yi-44u" id="Cz7-eX-UXu"/>
             </connections>
-            <point key="canvasLocation" x="208.80000000000001" y="367.01649175412297"/>
+            <point key="canvasLocation" x="226.40000000000001" y="465.51724137931041"/>
         </tableViewCell>
     </objects>
     <resources>

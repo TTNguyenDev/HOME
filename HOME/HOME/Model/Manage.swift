@@ -97,6 +97,10 @@ class Manage {
         return mTotalBalanceOfMonth!
     }
     
+    func getTotalFees() -> Int {
+        return mTotalFees!
+    }
+    
     //Cal calculate func before doing anything
     func getTotalOfRoomWithID(id: String) -> Int {
         return mTotalOfEachRoom[regconizeUserById(id: id)]

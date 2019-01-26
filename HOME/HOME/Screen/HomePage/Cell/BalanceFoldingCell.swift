@@ -13,13 +13,24 @@ class BalanceFoldingCell: FoldingCell {
     
     @IBOutlet weak var mTotalBalance: UILabel!
     
+    @IBOutlet var mTotalBalanceContainerView: UILabel!
+    @IBOutlet var mTotalOfThisMonthContainerView: UILabel!
+    @IBOutlet var mTotalFeesContainerView: UILabel!
+    @IBOutlet var mRecievedContainerView: UILabel!
+    
+    
     override func awakeFromNib() {
         foregroundView.layer.cornerRadius = 10
         foregroundView.layer.masksToBounds = true
         super.awakeFromNib()
+        
         let totalOfMonth = Bussiness.manage.getTotalBalanceOfMonth() as NSNumber
+        let totalFees = Bussiness.manage.getTotalFees() as NSNumber
         
         mTotalBalance.text = totalOfMonth.transferToCurrency
+        mTotalBalanceContainerView.text = totalOfMonth.transferToCurrency
+        mTotalOfThisMonthContainerView.text = totalOfMonth.transferToCurrency
+        mTotalFeesContainerView.text = totalFees.transferToCurrency
     }
     
     func currencyNumberFormat(number: Int) -> String {

@@ -77,9 +77,6 @@ class InputPageViewController: BaseViewController {
     }
     
     fileprivate func DEBUGFUNC() {
-        print(Date.daysLeft())
-        print(Date.getLastMonth())
-        
         mElec_1_1.text = "13"
         mElec_3_1.text = "13"
         mElec_1_2.text = "13"

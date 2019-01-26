@@ -27,7 +27,7 @@ class HomeViewController: BaseViewController, NVActivityIndicatorViewable{
     
     enum Const {
         static let closeCellHeight: CGFloat = 150
-        static let openCellHeight: CGFloat = 450
+        static let openCellHeight: CGFloat = 370
         static let rowsCount = 3
     }
     

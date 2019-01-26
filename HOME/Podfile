@@ -9,7 +9,7 @@ target 'HOME' do
   pod 'Firebase/Database'
   pod 'FoldingCell'
   pod 'NVActivityIndicatorView'
-
+  pod 'Charts'
   # Pods for HOME
 
 end
