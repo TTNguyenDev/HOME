@@ -18,13 +18,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="496" height="784.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W20-iI-gvi" customClass="RotatedView" customModule="FoldingCell">
-                        <rect key="frame" x="10" y="200" width="476" height="500"/>
-                        <color key="backgroundColor" red="0.88666874169999998" green="0.18964937330000001" blue="0.35385990140000001" alpha="0.90592893839999999" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="500" id="dYH-UD-7UX"/>
-                        </constraints>
-                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ESB-pM-dae" userLabel="MDateLeft" customClass="RotatedView" customModule="FoldingCell">
                         <rect key="frame" x="10" y="20" width="476" height="130"/>
                         <subviews>
@@ -39,7 +32,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="0.81736943493150682" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.39215686274509803" green="0.96470588235294119" blue="0.72941176470588232" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="Be9-WZ-F8V" firstAttribute="centerY" secondItem="PKB-ba-iVZ" secondAttribute="centerY" id="Uas-xB-evF"/>
                                     <constraint firstItem="Be9-WZ-F8V" firstAttribute="centerX" secondItem="PKB-ba-iVZ" secondAttribute="centerX" id="lyp-KM-fvq"/>
@@ -51,7 +44,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Process:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksZ-Ca-05x">
                                         <rect key="frame" x="10" y="10" width="107" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" red="0.29939043520000003" green="0.23204466700000001" blue="0.4914829731" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.39215686274509803" green="0.96470588235294119" blue="0.72941176470588232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.69999999999999996" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="AOj-aw-QDF">
@@ -89,6 +82,37 @@
                             <constraint firstItem="PKB-ba-iVZ" firstAttribute="leading" secondItem="ESB-pM-dae" secondAttribute="leading" id="dAy-He-p25"/>
                             <constraint firstAttribute="trailing" secondItem="Dec-Q2-5cO" secondAttribute="trailing" id="dOY-Tt-f84"/>
                             <constraint firstAttribute="height" constant="130" id="hWR-0B-5xw"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W20-iI-gvi" customClass="RotatedView" customModule="FoldingCell">
+                        <rect key="frame" x="10" y="200" width="476" height="500"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7xI-Dy-vCe" userLabel="titleBox">
+                                <rect key="frame" x="0.0" y="0.0" width="476" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gM2-gG-bK5">
+                                        <rect key="frame" x="0.0" y="0.0" width="476" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.39215686274509803" green="0.96470588235294119" blue="0.72941176470588232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="gM2-gG-bK5" firstAttribute="leading" secondItem="7xI-Dy-vCe" secondAttribute="leading" id="CbZ-TI-qCP"/>
+                                    <constraint firstAttribute="height" constant="60" id="IJh-kU-fh1"/>
+                                    <constraint firstAttribute="bottom" secondItem="gM2-gG-bK5" secondAttribute="bottom" id="ObF-nC-jAh"/>
+                                    <constraint firstItem="gM2-gG-bK5" firstAttribute="top" secondItem="7xI-Dy-vCe" secondAttribute="top" id="dRR-zC-idS"/>
+                                    <constraint firstAttribute="trailing" secondItem="gM2-gG-bK5" secondAttribute="trailing" id="tbM-ML-gif"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.94509803921568625" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="7xI-Dy-vCe" firstAttribute="leading" secondItem="W20-iI-gvi" secondAttribute="leading" id="2wY-Tr-JW3"/>
+                            <constraint firstItem="7xI-Dy-vCe" firstAttribute="top" secondItem="W20-iI-gvi" secondAttribute="top" id="8OA-bw-n7m"/>
+                            <constraint firstAttribute="trailing" secondItem="7xI-Dy-vCe" secondAttribute="trailing" id="HLK-6M-iaT"/>
+                            <constraint firstAttribute="height" constant="500" id="dYH-UD-7UX"/>
                         </constraints>
                     </view>
                 </subviews>

@@ -100,4 +100,15 @@ extension Date {
     }
 }
 
+extension NSNumber {
+    var transferToCurrency:String {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.usesGroupingSeparator = true
+        currencyFormatter.numberStyle = .currency
+        currencyFormatter.locale = Locale.current
+        
+        return currencyFormatter.string(from: self)!
+    }
+}
+
 

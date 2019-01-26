@@ -93,6 +93,10 @@ class Manage {
         API.user.saveManageData(totalOfMonth: mTotalBalanceOfMonth!, totalFees: mTotalFees!)
     }
     
+    func getTotalBalanceOfMonth() -> Int {
+        return mTotalBalanceOfMonth!
+    }
+    
     //Cal calculate func before doing anything
     func getTotalOfRoomWithID(id: String) -> Int {
         return mTotalOfEachRoom[regconizeUserById(id: id)]

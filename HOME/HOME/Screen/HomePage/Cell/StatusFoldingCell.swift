@@ -12,21 +12,13 @@ import FoldingCell
 class StatusFoldingCell: FoldingCell {
 
     override func awakeFromNib() {
-        super.awakeFromNib()
         foregroundView.layer.cornerRadius = 10
         foregroundView.layer.masksToBounds = true
-        
-        Bussiness.manage.ditInit {
-            print(Bussiness.manage.getAllPaper())
-        }
+        super.awakeFromNib()
     }
     
     override func animationDuration(_ itemIndex:NSInteger, type:FoldingCell.AnimationType)-> TimeInterval {
-        
-        // durations count equal it itemCount
-        let durations = [0.33, 0.26, 0.26] // timing animation for each view
+        let durations = [0.33, 0.26, 0.26]
         return durations[itemIndex]
     }
-    
-    
 }

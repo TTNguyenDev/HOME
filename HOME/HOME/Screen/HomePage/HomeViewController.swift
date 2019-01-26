@@ -7,15 +7,15 @@
 //
 
 /*
-HOME:
-+ Balance(total, month label) -> Load database
-+ Daysleft: Gọi hàm local
-+ My Process:  hiển thị mRecieved / mTotalBalanceOfMonth
-               +(touchUpInside) Hiển thị trạng thái của mỗi phòng, phòng nào xong thì hiện màu green, chưa thì red, slider hiển thị % hoàn thành so với mTotalOfEachRoom.
-               + Tích hợp nút edit để sửa lại trạng thái, nếu một user đóng tiền, sẽ có nút hoàn thành, hoặc tuỳ chỉnh(điền số tiền đã đóng, và số tiền còn thiếu)
+ HOME:
+ + Balance(total, month label) -> Load database
+ + Daysleft: Gọi hàm local
+ + My Process:  hiển thị mRecieved / mTotalBalanceOfMonth
+ +(touchUpInside) Hiển thị trạng thái của mỗi phòng, phòng nào xong thì hiện màu green, chưa thì red, slider hiển thị % hoàn thành so với mTotalOfEachRoom.
+ + Tích hợp nút edit để sửa lại trạng thái, nếu một user đóng tiền, sẽ có nút hoàn thành, hoặc tuỳ chỉnh(điền số tiền đã đóng, và số tiền còn thiếu)
  
  
-*/
+ */
 
 import UIKit
 import FoldingCell
@@ -27,7 +27,7 @@ class HomeViewController: BaseViewController, NVActivityIndicatorViewable{
     
     enum Const {
         static let closeCellHeight: CGFloat = 150
-        static let openCellHeight: CGFloat = 350
+        static let openCellHeight: CGFloat = 450
         static let rowsCount = 3
     }
     
@@ -35,23 +35,24 @@ class HomeViewController: BaseViewController, NVActivityIndicatorViewable{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
         setupIndicator()
+        
+        Bussiness.manage.ditInit {
+            self.setupTableView()
+            NVActivityIndicatorPresenter.sharedInstance.setMessage("Loading Success")
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+                self.stopAnimating()
+            }
+            
+        }
+        
     }
     
     fileprivate func setupIndicator() {
-        let size = CGSize(width: 30, height: 30)
-        let indicatorType = NVActivityIndicatorType.init(rawValue: 8)
+        let size = CGSize(width: 80, height: 80)
+        let indicatorType = NVActivityIndicatorType.init(rawValue: 29)
         
         startAnimating(size, message: "Loading...", messageFont: UIFont.boldSystemFont(ofSize: 20), type: indicatorType, color: .red, padding: 2, displayTimeThreshold: 2, minimumDisplayTime: 2, backgroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), textColor: .red, fadeInAnimation: nil)
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
-            NVActivityIndicatorPresenter.sharedInstance.setMessage("Authenticating...")
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
-            self.stopAnimating(nil)
-        }
     }
     
     private func setupTableView() {
@@ -111,11 +112,11 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BalanceFoldingCell", for: indexPath) as! FoldingCell
-        let durations: [TimeInterval] = [0.26, 0.2, 0.2]
-        cell.durationsForExpandedState = durations
-        cell.durationsForCollapsedState = durations
-        return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BalanceFoldingCell", for: indexPath) as! FoldingCell
+            let durations: [TimeInterval] = [0.26, 0.2, 0.2]
+            cell.durationsForExpandedState = durations
+            cell.durationsForCollapsedState = durations
+            return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CalendarFoldingCell", for: indexPath) as! FoldingCell
             let durations: [TimeInterval] = [0.26, 0.2, 0.2]
