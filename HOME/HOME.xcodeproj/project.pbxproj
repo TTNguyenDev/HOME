@@ -28,6 +28,8 @@
 		B5A7EB4821F82E100091C0E2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A7EB4721F82E100091C0E2 /* User.swift */; };
 		B5A7EB4A21F831150091C0E2 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A7EB4921F831150091C0E2 /* UserData.swift */; };
 		B5A7EB4D21F83B2F0091C0E2 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A7EB4C21F83B2F0091C0E2 /* Extension.swift */; };
+		B5D5F8A621FF068200531D5C /* UserStateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D5F8A421FF068200531D5C /* UserStateTableViewCell.swift */; };
+		B5D5F8A721FF068200531D5C /* UserStateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5D5F8A521FF068200531D5C /* UserStateTableViewCell.xib */; };
 		B5EAED2F21F96F3E0074AE52 /* Manage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EAED2E21F96F3E0074AE52 /* Manage.swift */; };
 		B5EAED3521F97A2D0074AE52 /* Bussiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EAED3421F97A2D0074AE52 /* Bussiness.swift */; };
 		B5EAED3721F989490074AE52 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EAED3621F989490074AE52 /* Const.swift */; };
@@ -90,6 +92,8 @@
 		B5A7EB4721F82E100091C0E2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B5A7EB4921F831150091C0E2 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		B5A7EB4C21F83B2F0091C0E2 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		B5D5F8A421FF068200531D5C /* UserStateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStateTableViewCell.swift; sourceTree = "<group>"; };
+		B5D5F8A521FF068200531D5C /* UserStateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserStateTableViewCell.xib; sourceTree = "<group>"; };
 		B5EAED2E21F96F3E0074AE52 /* Manage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manage.swift; sourceTree = "<group>"; };
 		B5EAED3421F97A2D0074AE52 /* Bussiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bussiness.swift; sourceTree = "<group>"; };
 		B5EAED3621F989490074AE52 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -165,6 +169,8 @@
 				B5492B9B21F7071D00A3E8E3 /* CalendarFoldingCell.xib */,
 				B5492BA121F7132F00A3E8E3 /* StatusFoldingCell.swift */,
 				B5492BA221F7132F00A3E8E3 /* StatusFoldingCell.xib */,
+				B5D5F8A421FF068200531D5C /* UserStateTableViewCell.swift */,
+				B5D5F8A521FF068200531D5C /* UserStateTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -418,6 +424,7 @@
 				B5FAB28A21F47D78006665B3 /* IntroViewController.xib in Resources */,
 				B5492B9D21F7071D00A3E8E3 /* CalendarFoldingCell.xib in Resources */,
 				B5FAB2B421F49C03006665B3 /* MePageViewController.xib in Resources */,
+				B5D5F8A721FF068200531D5C /* UserStateTableViewCell.xib in Resources */,
 				B50838C721FC112D00A46932 /* ReviewDataViewController.xib in Resources */,
 				B5492BA421F7132F00A3E8E3 /* StatusFoldingCell.xib in Resources */,
 				B5492B9321F7009500A3E8E3 /* HomeViewController.xib in Resources */,
@@ -442,6 +449,7 @@
 				"${BUILT_PRODUCTS_DIR}/ESTabBarController-swift/ESTabBarController_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/M13Checkbox/M13Checkbox.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -454,6 +462,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESTabBarController_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoldingCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/M13Checkbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -504,6 +513,7 @@
 				B5EAED3721F989490074AE52 /* Const.swift in Sources */,
 				B5492BA321F7132F00A3E8E3 /* StatusFoldingCell.swift in Sources */,
 				B5FAB28921F47D78006665B3 /* IntroViewController.swift in Sources */,
+				B5D5F8A621FF068200531D5C /* UserStateTableViewCell.swift in Sources */,
 				B5A7EB4521F80A070091C0E2 /* BaseFoldingView.swift in Sources */,
 				B561D63F21F5BCD20003A99D /* BaseViewController.swift in Sources */,
 				B5492B9C21F7071D00A3E8E3 /* CalendarFoldingCell.swift in Sources */,
@@ -597,6 +607,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -651,6 +662,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

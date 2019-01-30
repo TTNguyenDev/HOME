@@ -10,6 +10,7 @@ target 'HOME' do
   pod 'FoldingCell'
   pod 'NVActivityIndicatorView'
   pod 'Charts'
+  pod 'M13Checkbox'
   # Pods for HOME
 
 end

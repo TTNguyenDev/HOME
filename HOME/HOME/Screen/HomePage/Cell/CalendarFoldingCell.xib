@@ -78,7 +78,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aEJ-cS-rgc" customClass="RotatedView" customModule="FoldingCell">
-                        <rect key="frame" x="10" y="200" width="411" height="500"/>
+                        <rect key="frame" x="10" y="200" width="411" height="360"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kqj-no-sJP" userLabel="titleBox">
                                 <rect key="frame" x="0.0" y="0.0" width="411" height="60"/>
@@ -99,23 +99,23 @@
                                     <constraint firstAttribute="trailing" secondItem="oWR-a9-AJu" secondAttribute="trailing" id="xiP-oR-Boa"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5kz-nK-dbq" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="30.5" y="75" width="350" height="350"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="350" id="D86-eS-4ED"/>
-                                    <constraint firstAttribute="height" constant="350" id="ceN-WI-hqB"/>
-                                </constraints>
-                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8 days left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yyo-9R-84i">
+                                <rect key="frame" x="20" y="80" width="371" height="260"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="65"/>
+                                <color key="textColor" red="0.9369271993637085" green="0.52214580774307251" blue="0.49012845754623413" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.94509803921568625" blue="0.96470588235294119" alpha="0.90592893839999999" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Yyo-9R-84i" firstAttribute="top" secondItem="Kqj-no-sJP" secondAttribute="bottom" constant="20" id="FFd-FC-LYM"/>
                             <constraint firstAttribute="trailing" secondItem="Kqj-no-sJP" secondAttribute="trailing" id="HwT-La-cwJ"/>
-                            <constraint firstItem="5kz-nK-dbq" firstAttribute="centerY" secondItem="aEJ-cS-rgc" secondAttribute="centerY" id="J1Z-um-eAe"/>
+                            <constraint firstAttribute="bottom" secondItem="Yyo-9R-84i" secondAttribute="bottom" constant="20" id="TNf-jM-dFO"/>
                             <constraint firstItem="Kqj-no-sJP" firstAttribute="leading" secondItem="aEJ-cS-rgc" secondAttribute="leading" id="d04-bq-azy"/>
-                            <constraint firstItem="5kz-nK-dbq" firstAttribute="centerX" secondItem="aEJ-cS-rgc" secondAttribute="centerX" id="kH0-cw-vi7"/>
-                            <constraint firstAttribute="height" constant="500" id="o1b-d7-cdL"/>
+                            <constraint firstAttribute="height" constant="360" id="o1b-d7-cdL"/>
+                            <constraint firstAttribute="trailing" secondItem="Yyo-9R-84i" secondAttribute="trailing" constant="20" id="pj4-Ks-NY1"/>
                             <constraint firstItem="Kqj-no-sJP" firstAttribute="top" secondItem="aEJ-cS-rgc" secondAttribute="top" id="wf8-A8-7wP"/>
+                            <constraint firstItem="Yyo-9R-84i" firstAttribute="leading" secondItem="aEJ-cS-rgc" secondAttribute="leading" constant="20" id="x94-hh-w3s"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -142,7 +142,7 @@
                 <outlet property="foregroundView" destination="rtt-9Q-v7K" id="SAa-xj-k21"/>
                 <outlet property="foregroundViewTop" destination="Bu7-q7-xBM" id="nqh-c3-tUl"/>
                 <outlet property="mDaysLeft" destination="jIi-ev-te8" id="rVy-Ce-nD1"/>
-                <outlet property="mPieChartContainerView" destination="5kz-nK-dbq" id="dBU-H2-5cI"/>
+                <outlet property="mDaysLeftContainerView" destination="Yyo-9R-84i" id="gdG-BX-Y5i"/>
                 <outlet property="mToday" destination="JIJ-yi-44u" id="Cz7-eX-UXu"/>
             </connections>
             <point key="canvasLocation" x="226.40000000000001" y="465.51724137931041"/>

@@ -151,11 +151,11 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             cell.unfold(true, animated: true, completion: nil)
             duration = 0.5
         } else if cellIsCollapsed  && indexPath.row == 1 {
-            cellHeights[indexPath.row] = Const.openCellHeight + 200
+            cellHeights[indexPath.row] = Const.openCellHeight + 40
             cell.unfold(true, animated: true, completion: nil)
             duration = 0.5
         } else if cellIsCollapsed  && indexPath.row == 2 {
-            cellHeights[indexPath.row] = Const.openCellHeight + 200
+            cellHeights[indexPath.row] = Const.openCellHeight + 40
             cell.unfold(true, animated: true, completion: nil)
             duration = 0.5
         } else {
