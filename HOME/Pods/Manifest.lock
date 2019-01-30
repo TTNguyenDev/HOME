@@ -55,6 +55,7 @@ PODS:
   - GoogleUtilities/UserDefaults (5.3.4):
     - GoogleUtilities/Logger
   - leveldb-library (1.20)
+  - M13Checkbox (3.2.2)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -70,6 +71,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - FoldingCell
+  - M13Checkbox
   - NVActivityIndicatorView
 
 SPEC REPOS:
@@ -85,6 +87,7 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - leveldb-library
+    - M13Checkbox
     - nanopb
     - NVActivityIndicatorView
 
@@ -100,9 +103,10 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 5029d78f2b438bd30ffb44e6c558b57c21622727
   GoogleUtilities: abb092d2c12e817fa3e0e7b274987dd72fb86ec3
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  M13Checkbox: a8c2491cfbbca10797925fd0b9154a782bf40d89
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   NVActivityIndicatorView: ec7440a57af2450319d3a4181cca7da6fc127064
 
-PODFILE CHECKSUM: db998aa45ad60bbc7d6263ca388d77a466295ae7
+PODFILE CHECKSUM: b9ea49d99d5e7d9ed0b776afa47a3c1e9d71b90b
 
 COCOAPODS: 1.5.3
