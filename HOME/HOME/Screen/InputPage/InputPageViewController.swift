@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import NVActivityIndicatorView
+import SCLAlertView
 
 class InputPageViewController: BaseViewController, NVActivityIndicatorViewable {
     
@@ -53,6 +54,14 @@ class InputPageViewController: BaseViewController, NVActivityIndicatorViewable {
     }
     
     
+    fileprivate func confirmSaveDataAlert(confirmed: @escaping () -> Void) {
+        let alert = SCLAlertView()
+        _ = alert.addButton("Confirm") {
+            confirmed()
+        }
+        _ = alert.showWarning("Confirm", subTitle: "Are you sure to save this data?")
+    }
+    
     @IBAction func exportButton(_ sender: Any) {
         if mCalcalateButtonIsTouch {
             setupIndicator()
@@ -63,7 +72,7 @@ class InputPageViewController: BaseViewController, NVActivityIndicatorViewable {
                     let reviewDataViewController = ReviewDataViewController()
                     self.navigationController?.pushViewController(reviewDataViewController, animated: false)
                 }
-                
+
             }
         } else {
             let reviewDataViewController = ReviewDataViewController()
@@ -72,18 +81,19 @@ class InputPageViewController: BaseViewController, NVActivityIndicatorViewable {
     }
     
     @IBAction func saveButton(_ sender: Any) {
-        //Save UserData
-        mUserData.append(UserData(roomId: "p1_1", elecValue: Int(mElec_1_1.text!)!, waterValue: Int(mWater_1_1.text!)!))
-        mUserData.append(UserData(roomId: "p1_2", elecValue: Int(mElec_1_2.text!)!, waterValue: Int(mWater_1_2.text!)!))
-        mUserData.append(UserData(roomId: "p2_2", elecValue: Int(mElec_2_2.text!)!, waterValue: Int(mWater_2_2.text!)!))
-        mUserData.append(UserData(roomId: "p3_1", elecValue: Int(mElec_3_1.text!)!, waterValue: Int(mWater_3_1.text!)!))
-        mUserData.append(UserData(roomId: "p3_2", elecValue: Int(mElec_3_2.text!)!, waterValue: Int(mWater_3_2.text!)!))
-        mUserData.append(UserData(roomId: "p4_2", elecValue: Int(mElec_4_2.text!)!, waterValue: Int(mWater_4_2.text!)!))
-        
-        //Calculate
-        Bussiness.manage.calculateWith(previousUserData: mPreviousUserData, userData: mUserData)
-        mCalcalateButtonIsTouch = true
-        
+        confirmSaveDataAlert {
+            self.checkInputValue()
+            self.mUserData.append(UserData(roomId: "p1_1", elecValue: Int(self.mElec_1_1.text!)!, waterValue: Int(self.mWater_1_1.text!)!))
+            self.mUserData.append(UserData(roomId: "p1_2", elecValue: Int(self.mElec_1_2.text!)!, waterValue: Int(self.mWater_1_2.text!)!))
+            self.mUserData.append(UserData(roomId: "p2_2", elecValue: Int(self.mElec_2_2.text!)!, waterValue: Int(self.mWater_2_2.text!)!))
+            self.mUserData.append(UserData(roomId: "p3_1", elecValue: Int(self.mElec_3_1.text!)!, waterValue: Int(self.mWater_3_1.text!)!))
+            self.mUserData.append(UserData(roomId: "p3_2", elecValue: Int(self.mElec_3_2.text!)!, waterValue: Int(self.mWater_3_2.text!)!))
+            self.mUserData.append(UserData(roomId: "p4_2", elecValue: Int(self.mElec_4_2.text!)!, waterValue: Int(self.mWater_4_2.text!)!))
+            
+            //Calculate
+            Bussiness.manage.calculateWith(previousUserData: self.mPreviousUserData, userData: self.mUserData)
+            self.mCalcalateButtonIsTouch = true
+        }
     }
     
     @IBAction func showInputUser(_ sender: Any) {
@@ -115,7 +125,27 @@ class InputPageViewController: BaseViewController, NVActivityIndicatorViewable {
         mWater_4_2.text = "13"
     }
     
-    func presentPreviousUserData() {
+    fileprivate func checkInputValue() {
+        mElec_1_1.text = mElec_1_1.text == "" ? "0" : mElec_1_1.text
+        mWater_1_1.text = mWater_1_1.text == "" ? "0" : mWater_1_1.text
+        
+        mElec_3_1.text = mElec_3_1.text == "" ? "0" : mElec_3_1.text
+        mWater_3_1.text = mWater_3_1.text == "" ? "0" : mWater_3_1.text
+        
+        mElec_1_2.text = mElec_1_2.text == "" ? "0" : mElec_1_2.text
+        mWater_1_2.text = mWater_1_2.text == "" ? "0" : mWater_1_2.text
+        
+        mElec_2_2.text = mElec_2_2.text == "" ? "0" : mElec_2_2.text
+        mWater_2_2.text = mWater_2_2.text == "" ? "0" : mWater_2_2.text
+        
+        mElec_3_2.text = mElec_3_2.text == "" ? "0" : mElec_3_2.text
+        mWater_3_2.text = mWater_3_2.text == "" ? "0" : mWater_3_2.text
+        
+        mElec_4_2.text = mElec_4_2.text == "" ? "0" : mElec_4_2.text
+        mWater_4_2.text = mWater_4_2.text == "" ? "0" : mWater_4_2.text
+    }
+    
+    func observePreviousUserData() {
         API.user.observeUserDataWithDate(date: "01_2019", completion: { (previousUserData) in
             self.mPreviousUserData.append(previousUserData)
         })
@@ -124,10 +154,16 @@ class InputPageViewController: BaseViewController, NVActivityIndicatorViewable {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        DEBUGFUNC()
-        presentPreviousUserData()
+        observePreviousUserData()
+        
+       
+    }
+    
+    @objc func firstButton() {
+        print("First button tapped")
     }
 }
+
 
 extension InputPageViewController {
     func hideKeyboardWhenTappedAround() {

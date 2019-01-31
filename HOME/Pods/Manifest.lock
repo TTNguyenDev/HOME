@@ -64,6 +64,7 @@ PODS:
   - NVActivityIndicatorView (4.4.0):
     - NVActivityIndicatorView/Presenter (= 4.4.0)
   - NVActivityIndicatorView/Presenter (4.4.0)
+  - SCLAlertView (0.8)
 
 DEPENDENCIES:
   - Charts
@@ -73,6 +74,7 @@ DEPENDENCIES:
   - FoldingCell
   - M13Checkbox
   - NVActivityIndicatorView
+  - SCLAlertView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -90,6 +92,7 @@ SPEC REPOS:
     - M13Checkbox
     - nanopb
     - NVActivityIndicatorView
+    - SCLAlertView
 
 SPEC CHECKSUMS:
   Charts: f122fb70b19847fa5817d018b77d6c5a2296ab25
@@ -106,7 +109,8 @@ SPEC CHECKSUMS:
   M13Checkbox: a8c2491cfbbca10797925fd0b9154a782bf40d89
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   NVActivityIndicatorView: ec7440a57af2450319d3a4181cca7da6fc127064
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
 
-PODFILE CHECKSUM: b9ea49d99d5e7d9ed0b776afa47a3c1e9d71b90b
+PODFILE CHECKSUM: 0da1ab9588e432573b644c81f9d2248651ab12a1
 
 COCOAPODS: 1.5.3

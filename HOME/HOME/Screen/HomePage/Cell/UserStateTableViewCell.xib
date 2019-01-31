@@ -65,7 +65,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13 200 400 đ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nwp-rv-OdV">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="50.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.56153470277786255" green="0.82875174283981323" blue="0.96082192659378052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -107,6 +107,8 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="mCheckBox" destination="f7P-sX-j6x" id="PsK-qx-4ex"/>
+                <outlet property="mRoomId" destination="eTA-cD-svz" id="KM8-Al-8Lw"/>
+                <outlet property="mRoomTotalValue" destination="Nwp-rv-OdV" id="zzS-F1-YTp"/>
             </connections>
             <point key="canvasLocation" x="552" y="193.85307346326837"/>
         </tableViewCell>

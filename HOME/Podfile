@@ -11,6 +11,7 @@ target 'HOME' do
   pod 'NVActivityIndicatorView'
   pod 'Charts'
   pod 'M13Checkbox'
+  pod 'SCLAlertView'
   # Pods for HOME
 
 end

@@ -11,16 +11,17 @@ import M13Checkbox
 
 class UserStateTableViewCell: UITableViewCell {
     
-    
     @IBOutlet var mCheckBox: UIView!
+    
     var buttonAction: ((Any) -> Void)?
+    @IBOutlet var mRoomId: UILabel!
+    @IBOutlet var mRoomTotalValue: UILabel!
     
     var checkBox:M13Checkbox = {
         let CheckBox = M13Checkbox(frame: CGRect(x: 5, y: 5, width: 40, height: 40))
         CheckBox.stateChangeAnimation = .fill
         CheckBox.tintColor = #colorLiteral(red: 0, green: 0.5628422499, blue: 0.3188166618, alpha: 1)
         CheckBox.secondaryTintColor = #colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)
-       
         return CheckBox
     }()
     
@@ -33,7 +34,6 @@ class UserStateTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCheckBox()
-       
     }
     
     @objc func checkBoxValueDidChanged(sender: Any) {

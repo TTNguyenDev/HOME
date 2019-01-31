@@ -12,6 +12,7 @@ import FoldingCell
 class StatusFoldingCell: FoldingCell {
     
     var mUserData = [UserData]()
+    var mRoomTotalValue = [Int]()
     
     @IBOutlet var mUserStateTableView: UITableView!
     
@@ -33,6 +34,8 @@ class StatusFoldingCell: FoldingCell {
     
     func fillUserData() {
         mUserData = Bussiness.manage.getUserData()
+        mRoomTotalValue = Bussiness.manage.getTotalOfEachRoom()
+    
     }
     
     override func animationDuration(_ itemIndex:NSInteger, type:FoldingCell.AnimationType)-> TimeInterval {
@@ -45,9 +48,16 @@ extension StatusFoldingCell: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
     }
-    
+       
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserStateCell", for: indexPath) as! UserStateTableViewCell
+        
+        let mRoomValue = mRoomTotalValue[indexPath.row] as NSNumber
+        
+        cell.mRoomTotalValue.text = mRoomValue.transferToCurrency
+        cell.mRoomId.text = mUserData[indexPath.row].mRoomId
+        cell.backgroundColor = .clear
+        
         if mUserData[indexPath.row].mState! {
              cell.checkBox.setCheckState(.checked, animated: true)
              cell.isUserInteractionEnabled = false
@@ -56,8 +66,6 @@ extension StatusFoldingCell: UITableViewDataSource, UITableViewDelegate {
         cell.buttonAction = { sender in
             Bussiness.manage.setUserStateByIdNumber(idNumber: indexPath.row)
         }
-      
-        cell.backgroundColor = .clear
         return cell
     }
     

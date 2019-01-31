@@ -157,6 +157,9 @@ class Manage {
         return mTotalOfEachRoom[regconizeUserById(id: id)]
     }
     
+    func getTotalOfEachRoom() -> [Int] {
+        return mTotalOfEachRoom
+    }
     func getPaperOfRoomWithID(id: String) -> String {
         return mPaperForEachRoom[regconizeUserById(id: id)]
     }
