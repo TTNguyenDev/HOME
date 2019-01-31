@@ -44,12 +44,6 @@ class HomeViewController: BaseViewController, NVActivityIndicatorViewable {
                 self.stopAnimating()
             }
         }
-        API.user.setStateUserWith(id: "p1_1")
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-       
     }
     
     fileprivate func setupIndicator() {

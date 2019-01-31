@@ -35,8 +35,6 @@ class StatusFoldingCell: FoldingCell {
         mUserData = Bussiness.manage.getUserData()
     }
     
-    
-    
     override func animationDuration(_ itemIndex:NSInteger, type:FoldingCell.AnimationType)-> TimeInterval {
         let durations = [0.33, 0.26, 0.26]
         return durations[itemIndex]
@@ -52,10 +50,10 @@ extension StatusFoldingCell: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserStateCell", for: indexPath) as! UserStateTableViewCell
         if mUserData[indexPath.row].mState! {
              cell.checkBox.setCheckState(.checked, animated: true)
+             cell.isUserInteractionEnabled = false
         }
+        
         cell.buttonAction = { sender in
-            print("J")
-            print(indexPath.row)
             Bussiness.manage.setUserStateByIdNumber(idNumber: indexPath.row)
         }
       

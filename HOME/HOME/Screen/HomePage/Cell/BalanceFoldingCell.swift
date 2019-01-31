@@ -33,8 +33,6 @@ class BalanceFoldingCell: FoldingCell {
         mTotalOfThisMonthContainerView.text = totalOfMonth.transferToCurrency
         mTotalFeesContainerView.text = totalFees.transferToCurrency
         
-        
-        
         NotificationCenter.default.addObserver(self, selector: #selector(testListener), name: name, object: nil)
     }
     

@@ -21,10 +21,7 @@ class CalendarFoldingCell: FoldingCell {
         foregroundView.layer.cornerRadius = 10
         foregroundView.layer.masksToBounds = true
         super.awakeFromNib()
-        
         presentData()
-        
-       
     }
     
     func presentData() {
