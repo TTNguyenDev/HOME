@@ -8,11 +8,13 @@
 
 import UIKit
 import FirebaseDatabase
+import NVActivityIndicatorView
 
-class InputPageViewController: BaseViewController {
+class InputPageViewController: BaseViewController, NVActivityIndicatorViewable {
     
     var mUserData = [UserData]()
     var mPreviousUserData = [UserData]()
+    var mCalcalateButtonIsTouch = false
     
     //Phòng 1.1
     @IBOutlet var mElec_1_1: BaseTextInput!
@@ -43,10 +45,30 @@ class InputPageViewController: BaseViewController {
     @IBOutlet var mainStack: UIStackView!
     @IBOutlet var stack: UIStackView!
     
+    fileprivate func setupIndicator() {
+        let size = CGSize(width: 80, height: 80)
+        let indicatorType = NVActivityIndicatorType.init(rawValue: 29)
+        
+        startAnimating(size, message: "Loading...", messageFont: UIFont.boldSystemFont(ofSize: 20), type: indicatorType, color: .red, padding: 2, displayTimeThreshold: 2, minimumDisplayTime: 2, backgroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), textColor: .red, fadeInAnimation: nil)
+    }
+    
     
     @IBAction func exportButton(_ sender: Any) {
-        let reviewDataViewController = ReviewDataViewController()
-        navigationController?.pushViewController(reviewDataViewController, animated: true)
+        if mCalcalateButtonIsTouch {
+            setupIndicator()
+            Bussiness.manage.ditInit {
+                NVActivityIndicatorPresenter.sharedInstance.setMessage("Loading Success")
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+                    self.stopAnimating()
+                    let reviewDataViewController = ReviewDataViewController()
+                    self.navigationController?.pushViewController(reviewDataViewController, animated: false)
+                }
+                
+            }
+        } else {
+            let reviewDataViewController = ReviewDataViewController()
+            navigationController?.pushViewController(reviewDataViewController, animated: false)
+        }
     }
     
     @IBAction func saveButton(_ sender: Any) {
@@ -60,6 +82,7 @@ class InputPageViewController: BaseViewController {
         
         //Calculate
         Bussiness.manage.calculateWith(previousUserData: mPreviousUserData, userData: mUserData)
+        mCalcalateButtonIsTouch = true
         
     }
     

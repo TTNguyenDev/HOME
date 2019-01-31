@@ -21,8 +21,8 @@ import UIKit
 import FoldingCell
 import NVActivityIndicatorView
 
-class HomeViewController: BaseViewController, NVActivityIndicatorViewable{
-    
+class HomeViewController: BaseViewController, NVActivityIndicatorViewable {
+
     @IBOutlet var tableView: UITableView!
     
     enum Const {
@@ -36,16 +36,20 @@ class HomeViewController: BaseViewController, NVActivityIndicatorViewable{
     override func viewDidLoad() {
         super.viewDidLoad()
         setupIndicator()
-        
         Bussiness.manage.ditInit {
             self.setupTableView()
+            print("loading success")
             NVActivityIndicatorPresenter.sharedInstance.setMessage("Loading Success")
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
                 self.stopAnimating()
             }
-            
         }
-        
+        API.user.setStateUserWith(id: "p1_1")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+       
     }
     
     fileprivate func setupIndicator() {

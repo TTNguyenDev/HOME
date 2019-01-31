@@ -10,7 +10,7 @@ import UIKit
 import FoldingCell
 
 class BalanceFoldingCell: FoldingCell {
-    
+   
     @IBOutlet weak var mTotalBalance: UILabel!
     
     @IBOutlet var mTotalBalanceContainerView: UILabel!
@@ -18,12 +18,27 @@ class BalanceFoldingCell: FoldingCell {
     @IBOutlet var mTotalFeesContainerView: UILabel!
     @IBOutlet var mRecievedContainerView: UILabel!
     
+    let name = Notification.Name(rawValue: isDataDidChanged)
     
     override func awakeFromNib() {
         foregroundView.layer.cornerRadius = 10
         foregroundView.layer.masksToBounds = true
         super.awakeFromNib()
         
+        let totalOfMonth = Bussiness.manage.getTotalBalanceOfMonth() as NSNumber
+        let totalFees = Bussiness.manage.getTotalFees() as NSNumber
+        
+        mTotalBalance.text = totalOfMonth.transferToCurrency
+        mTotalBalanceContainerView.text = totalOfMonth.transferToCurrency
+        mTotalOfThisMonthContainerView.text = totalOfMonth.transferToCurrency
+        mTotalFeesContainerView.text = totalFees.transferToCurrency
+        
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(testListener), name: name, object: nil)
+    }
+    
+    @objc func testListener() {
         let totalOfMonth = Bussiness.manage.getTotalBalanceOfMonth() as NSNumber
         let totalFees = Bussiness.manage.getTotalFees() as NSNumber
         
@@ -48,3 +63,5 @@ class BalanceFoldingCell: FoldingCell {
     
     
 }
+
+

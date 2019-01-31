@@ -17,14 +17,18 @@ class UserApi {
     func observeUserDataWithDate(date: String, completion: @escaping (UserData) -> Void) {
         USERDATA_REF.child(date).observe(.childAdded) { (snapShot) in
             if let dictionary = snapShot.value as? NSDictionary {
-                let userData = UserData.transformUser(dictionary: dictionary)
+                let userData = UserData.transfermUser(dictionary: dictionary)
                 completion(userData)
             }
         }
     }
     
     func saveUserData(roomId: String, elecValue: Int, waterValue: Int) {
-        USERDATA_REF.child("02_2019").child(roomId).setValue(["mDateWrote": mDateWrote, "mRoomId": roomId, "mElecValue": elecValue, "mWaterValue": waterValue])
+        USERDATA_REF.child("02_2019").child(roomId).setValue(["mDateWrote": mDateWrote, "mRoomId": roomId, "mElecValue": elecValue, "mWaterValue": waterValue, "mState": false])
+    }
+    
+    func setStateUserWith(id: String) {
+        USERDATA_REF.child("02_2019").child(id).child("mState").setValue(true)
     }
     
     func saveManageData(totalOfMonth: Int, totalFees: Int) {

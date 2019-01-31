@@ -9,6 +9,8 @@
 import Foundation
 import FirebaseDatabase
 
+let isDataDidChanged = "co.listener.isDataDidChanged"
+
 class Manage {
     var mUserData = [UserData]()
     var mPreviousUserData = [UserData]()
@@ -21,21 +23,38 @@ class Manage {
     var mRecieved: Int  = 0      //*
     var mTotalFees: Int? //*
     
+    let mIsDataDidChanged = Notification.Name(isDataDidChanged)
+    
+    
     init() {}
     
-    func ditInit(completion: @escaping () -> Void){
+    func ditInit(completion: @escaping () -> Void) {
+        removePreviousData()
+        
         API.user.observeUserDataWithDate(date: "01_2019") { (previousUserData) in
             self.mPreviousUserData.append(previousUserData)
         }
         
         API.user.observeUserDataWithDate(date: "02_2019") { (userData) in
             self.mUserData.append(userData)
-            
             if self.mUserData.count == 6 {
                 self.calculateWith(previousUserData: self.mPreviousUserData, userData: self.mUserData)
                 completion()
             }
         }
+    }
+    
+    func removePreviousData() {
+        mUserData.removeAll()
+        mPreviousUserData.removeAll()
+        mWaterFeesOfEachRoom.removeAll()
+        mElecFeesOfEachRoom.removeAll()
+        mTotalOfEachRoom.removeAll()
+        mPaperForEachRoom.removeAll()
+        mTotalBalance = 0
+        mTotalBalanceOfMonth = 0
+        mRecieved = 0
+        mTotalFees = 0
     }
     
     func transferRoomID(roomID: String) -> String {
@@ -61,11 +80,11 @@ class Manage {
         switch id {
         case "p1_1":
             return 0
-        case "p3_1":
-            return 1
         case "p1_2":
-            return 2
+            return 1
         case "p2_2":
+            return 2
+        case "p3_1":
             return 3
         case "p3_2":
             return 4
@@ -74,13 +93,43 @@ class Manage {
         default:
             return -1
         }
-        
+    }
+    
+    func reconizeIdByNumber(idNumber: Int) -> String {
+        switch idNumber {
+        case 0 :
+            return "p1_1"
+        case 1:
+            return "p1_2"
+        case 2:
+            return "p2_2"
+        case 3:
+            return "p3_1"
+        case 4:
+            return "p3_2"
+        case 5:
+            return "p4_2"
+        default:
+            return ""
+        }
+    }
+    
+    func setUserStateByIdNumber(idNumber: Int) {
+        API.user.setStateUserWith(id: reconizeIdByNumber(idNumber: idNumber))
+    }
+    
+    func getUserData() -> [UserData] {
+        return mUserData
+    }
+    
+    func dataChangedValue() {
+        NotificationCenter.default.post(name: mIsDataDidChanged, object: nil)
     }
     
     func calculateWith(previousUserData: [UserData], userData: [UserData])  {
         for i in 0..<userData.count {
             let elecUsed = (userData[i].mElecValue! - previousUserData[i].mElecValue!) * mElecFees
-            let waterUsed = (userData[i].mElecValue! - previousUserData[i].mElecValue!) * mWaterFees
+            let waterUsed = (userData[i].mWaterValue! - previousUserData[i].mWaterValue!) * mWaterFees
             let sum = elecUsed + waterUsed + mRoomFees[i] + mOtherFees
             
             mElecFeesOfEachRoom.append(elecUsed)
@@ -91,6 +140,8 @@ class Manage {
         mTotalFees = mElecFeesOfEachRoom.reduce(0, +) + mWaterFeesOfEachRoom.reduce(0, +)
         
         API.user.saveManageData(totalOfMonth: mTotalBalanceOfMonth!, totalFees: mTotalFees!)
+        self.dataChangedValue()
+        
     }
     
     func getTotalBalanceOfMonth() -> Int {
@@ -116,23 +167,23 @@ class Manage {
             
             let paperForEachRoom = """
             
-                            Phiếu thu tiền \(transferRoomID(roomID: mUserData[i].mRoomId!))
-                              ---------- @@ ----------
+            Phiếu thu tiền \(transferRoomID(roomID: mUserData[i].mRoomId!))
+            ---------- @@ ----------
             
-                - Tiền phòng: \(mRoomFees[i])
-                - Điện:
-                    + Tháng này: \(mUserData[i].mElecValue!)
-                    + Tháng trước: \(mPreviousUserData[i].mElecValue!)
-                    + Tiêu thụ: (\(mUserData[i].mElecValue!) - \(mPreviousUserData[i].mElecValue!)) x \(mElecFees) = \(mElecFeesOfEachRoom[i])
+            - Tiền phòng: \(mRoomFees[i])
+            - Điện:
+            + Tháng này: \(mUserData[i].mElecValue!)
+            + Tháng trước: \(mPreviousUserData[i].mElecValue!)
+            + Tiêu thụ: (\(mUserData[i].mElecValue!) - \(mPreviousUserData[i].mElecValue!)) x \(mElecFees) = \(mElecFeesOfEachRoom[i])
             
-                - Nước:
-                    + Tháng này: \(mUserData[i].mWaterValue!)
-                    + Tháng trước: \(mPreviousUserData[i].mWaterValue!)
-                    + Tiêu thụ: (\(mUserData[i].mWaterValue!) - \(mPreviousUserData[i].mWaterValue!)) x \(mWaterFees) = \(mWaterFeesOfEachRoom[i])
+            - Nước:
+            + Tháng này: \(mUserData[i].mWaterValue!)
+            + Tháng trước: \(mPreviousUserData[i].mWaterValue!)
+            + Tiêu thụ: (\(mUserData[i].mWaterValue!) - \(mPreviousUserData[i].mWaterValue!)) x \(mWaterFees) = \(mWaterFeesOfEachRoom[i])
             
-                - Tiền rác: \(mOtherFees)
-                - TỔNG CỘNG: \(mTotalOfEachRoom[i])
-                            (Ghi chú: điện: 3300/kW, nước: 5000/khối)
+            - Tiền rác: \(mOtherFees)
+            - TỔNG CỘNG: \(mTotalOfEachRoom[i])
+            (Ghi chú: điện: 3300/kW, nước: 5000/khối)
             
             """
             
