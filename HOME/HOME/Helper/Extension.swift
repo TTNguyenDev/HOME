@@ -88,9 +88,23 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    static func getCurrentDay() -> Int {
+        let day = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd"
+        let dayString = formatter.string(from: day)
+        return  Int(dayString)!
+    }
+    
     static func daysLeft() -> Int {
         let currentDate = Date()
-        let constDate = "05-\(getNextMonth())"
+        var constDate = "05-\(getNextMonth())"
+        if getCurrentDay() <= 5 {
+            let constDateFormatter = DateFormatter()
+            constDateFormatter.dateFormat = "MM-yyyy"
+            let formatedConstDate = constDateFormatter.string(from: currentDate)
+            constDate = "05-\(formatedConstDate)"
+        }
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
