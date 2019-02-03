@@ -9,11 +9,28 @@
 import UIKit
 import FoldingCell
 
-class BaseFoldingView: RotatedView {
+@IBDesignable class BaseFoldingView: RotatedView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         didInit()
+    }
+    
+    @IBInspectable var cornerRadius: CGFloat = 2
+    @IBInspectable var shadowOffSetWidth: CGFloat = 0
+    @IBInspectable var shadowOffSetHeight: CGFloat = 5
+    @IBInspectable var shadowColor: UIColor = .black
+    @IBInspectable var shadowOpacity: CGFloat = 0.5
+    
+    
+    override func layoutSubviews() {
+        layer.cornerRadius = cornerRadius
+        layer.shadowColor = shadowColor.cgColor
+        layer.shadowOffset = CGSize(width: shadowOffSetWidth, height: shadowOffSetHeight)
+        
+        let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
+        layer.shadowPath = shadowPath.cgPath
+        layer.shadowOpacity = Float(shadowOpacity)
     }
     
     required init?(coder aDecoder: NSCoder) {

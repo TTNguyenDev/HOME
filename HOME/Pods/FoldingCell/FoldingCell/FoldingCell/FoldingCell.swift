@@ -403,7 +403,7 @@ open class FoldingCell: UITableViewCell {
 // MARK: RotatedView
 
 open class RotatedView: UIView {
-    
+  
     fileprivate enum Const {
         static let rotationX = "rotation.x"
         static let transformRotationX = "transform.rotation.x"

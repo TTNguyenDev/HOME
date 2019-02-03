@@ -60,9 +60,9 @@ class Manage {
     func transferRoomID(roomID: String) -> String {
         switch roomID {
         case "p1_1":
-            return "pòng 1 tầng 1"
+            return "phòng 1 tầng 1"
         case "p3_1":
-            return " hòng 3 tầng 1"
+            return "phòng 3 tầng 1"
         case "p1_2":
             return "phòng 1 tầng 2"
         case "p2_2":
@@ -167,29 +167,27 @@ class Manage {
     func getAllPaper() -> String {
         var paper = ""
         for i in 0..<6 {
-            
             let paperForEachRoom = """
             
-            Phiếu thu tiền \(transferRoomID(roomID: mUserData[i].mRoomId!))
-            ---------- @@ ----------
+                                        Phiếu thu tiền \(transferRoomID(roomID: mUserData[i].mRoomId!))
+                                         ---------- @@ ----------
             
-            - Tiền phòng: \(mRoomFees[i])
-            - Điện:
-            + Tháng này: \(mUserData[i].mElecValue!)
-            + Tháng trước: \(mPreviousUserData[i].mElecValue!)
-            + Tiêu thụ: (\(mUserData[i].mElecValue!) - \(mPreviousUserData[i].mElecValue!)) x \(mElecFees) = \(mElecFeesOfEachRoom[i])
+                        - Tiền phòng: \(mRoomFees[i])
+                        - Điện:
+                            + Tháng này: \(mUserData[i].mElecValue!)
+                            + Tháng trước: \(mPreviousUserData[i].mElecValue!)
+                            + Tiêu thụ: (\(mUserData[i].mElecValue! - mPreviousUserData[i].mElecValue!)) x \(mElecFees) = \(mElecFeesOfEachRoom[i])
             
-            - Nước:
-            + Tháng này: \(mUserData[i].mWaterValue!)
-            + Tháng trước: \(mPreviousUserData[i].mWaterValue!)
-            + Tiêu thụ: (\(mUserData[i].mWaterValue!) - \(mPreviousUserData[i].mWaterValue!)) x \(mWaterFees) = \(mWaterFeesOfEachRoom[i])
+                        - Nước:
+                            + Tháng này: \(mUserData[i].mWaterValue!)
+                            + Tháng trước: \(mPreviousUserData[i].mWaterValue!)
+                            + Tiêu thụ: (\(mUserData[i].mWaterValue! - mPreviousUserData[i].mWaterValue!)) x \(mWaterFees) = \(mWaterFeesOfEachRoom[i])
             
-            - Tiền rác: \(mOtherFees)
-            - TỔNG CỘNG: \(mTotalOfEachRoom[i])
-            (Ghi chú: điện: 3300/kW, nước: 5000/khối)
+                        - Tiền rác: \(mOtherFees)
+                        - TỔNG CỘNG: \(mTotalOfEachRoom[i])
+                                    (Ghi chú: điện: 3300/kW, nước: 5000/khối)
             
             """
-            
             mPaperForEachRoom.append(paperForEachRoom)
             paper += paperForEachRoom
         }

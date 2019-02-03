@@ -72,7 +72,6 @@ class InputPageViewController: BaseViewController, NVActivityIndicatorViewable {
                     let reviewDataViewController = ReviewDataViewController()
                     self.navigationController?.pushViewController(reviewDataViewController, animated: false)
                 }
-
             }
         } else {
             let reviewDataViewController = ReviewDataViewController()
