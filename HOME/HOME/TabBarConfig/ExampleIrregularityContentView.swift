@@ -14,13 +14,13 @@ class ExampleIrregularityBasicContentView: ExampleBouncesContentView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        textColor = UIColor.gray
+        textColor = .gray
         highlightTextColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
-        iconColor = UIColor.gray
+        iconColor = .gray
         highlightIconColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
         
-        backdropColor = UIColor.clear
-        highlightBackdropColor = UIColor.clear
+        backdropColor = .clear
+        highlightBackdropColor = .clear
     }
     
     public required init?(coder aDecoder: NSCoder) {

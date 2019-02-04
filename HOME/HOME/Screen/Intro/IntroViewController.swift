@@ -9,23 +9,24 @@
 import UIKit
 import ESTabBarController_swift
 import LocalAuthentication
+import UserNotifications
 
-public class IntroViewController: UIViewController, UITabBarControllerDelegate {
+public class IntroViewController: UIViewController, UITabBarControllerDelegate,  UNUserNotificationCenterDelegate {
     
-
+    
     @IBAction func mFaceIdLogin(_ sender: Any) {
         let context = LAContext()
         var error: NSError?
-    
+        
         
         guard context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) else {
-            return print(error)
+            return print(error!)
         }
         
         let reason = "Face ID authentication"
         context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { isAuthorized, error in
             guard isAuthorized == true else {
-                return print(error)
+                return print(error!)
             }
             
             let tabBarController = ESTabBarController()
@@ -49,12 +50,38 @@ public class IntroViewController: UIViewController, UITabBarControllerDelegate {
             tabBarController.viewControllers = [mHomePage, mInputPage, mMePage]
             self.present(tabBarController, animated: true, completion: nil)
         }
-       
+        
     }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+       let content = UNMutableNotificationContent()
+        content.title = "Alert"
+        content.body = "Today is 5th, let's get room fees"
+        content.badge = 1
+        
+        UNUserNotificationCenter.current().delegate = self
+        
+        var morningAlert = DateComponents()
+        morningAlert.hour = 8
+        morningAlert.minute = 00
+        morningAlert.day = 05
+        
+        var eveningAlert = DateComponents()
+        eveningAlert.hour = 19
+        eveningAlert.minute = 00
+        eveningAlert.day = 05
+        
+        let morningTrigger = UNCalendarNotificationTrigger(dateMatching: morningAlert, repeats: true)
+        let eveningTrigger = UNCalendarNotificationTrigger(dateMatching: eveningAlert, repeats: true)
+        
+        let morningRequest = UNNotificationRequest(identifier: "Request with DateComponents", content: content, trigger: morningTrigger)
+        
+        let eveningRequest = UNNotificationRequest(identifier: "Request with DateComponents", content: content, trigger: eveningTrigger)
+        
+        UNUserNotificationCenter.current().add(morningRequest, withCompletionHandler: nil)
+        UNUserNotificationCenter.current().add(eveningRequest, withCompletionHandler: nil)
+        UNUserNotificationCenter.current().delegate = self
     }
-
 }

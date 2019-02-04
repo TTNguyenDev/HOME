@@ -41,7 +41,6 @@ class InputPageViewController: BaseViewController, NVActivityIndicatorViewable {
     @IBOutlet var mElec_4_2: BaseTextInput!
     @IBOutlet var mWater_4_2: BaseTextInput!
     
-    
     @IBOutlet var mShowInputUser: UIButton!
     @IBOutlet var mainStack: UIStackView!
     @IBOutlet var stack: UIStackView!
@@ -52,7 +51,6 @@ class InputPageViewController: BaseViewController, NVActivityIndicatorViewable {
         
         startAnimating(size, message: "Loading...", messageFont: UIFont.boldSystemFont(ofSize: 20), type: indicatorType, color: .red, padding: 2, displayTimeThreshold: 2, minimumDisplayTime: 2, backgroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), textColor: .red, fadeInAnimation: nil)
     }
-    
     
     fileprivate func confirmSaveDataAlert(confirmed: @escaping () -> Void) {
         let alert = SCLAlertView()
@@ -125,28 +123,49 @@ class InputPageViewController: BaseViewController, NVActivityIndicatorViewable {
     }
     
     fileprivate func checkInputValue() {
-        mElec_1_1.text = mElec_1_1.text == "" ? "0" : mElec_1_1.text
-        mWater_1_1.text = mWater_1_1.text == "" ? "0" : mWater_1_1.text
+        mElec_1_1.text = mElec_1_1.text == "" ? String(self.mPreviousUserData[0].mElecValue!) : mElec_1_1.text
+        mWater_1_1.text = mWater_1_1.text == "" ? String(self.mPreviousUserData[0].mWaterValue!) : mWater_1_1.text
+      
+        mElec_1_2.text = mElec_1_2.text == "" ? String(self.mPreviousUserData[1].mElecValue!) : mElec_1_2.text
+        mWater_1_2.text = mWater_1_2.text == "" ? String(self.mPreviousUserData[1].mElecValue!) : mWater_1_2.text
         
-        mElec_3_1.text = mElec_3_1.text == "" ? "0" : mElec_3_1.text
-        mWater_3_1.text = mWater_3_1.text == "" ? "0" : mWater_3_1.text
+        mElec_2_2.text = mElec_2_2.text == "" ? String(self.mPreviousUserData[2].mElecValue!) : mElec_2_2.text
+        mWater_2_2.text = mWater_2_2.text == "" ? String(self.mPreviousUserData[2].mElecValue!) : mWater_2_2.text
         
-        mElec_1_2.text = mElec_1_2.text == "" ? "0" : mElec_1_2.text
-        mWater_1_2.text = mWater_1_2.text == "" ? "0" : mWater_1_2.text
+        mElec_3_1.text = mElec_3_1.text == "" ? String(self.mPreviousUserData[3].mElecValue!) : mElec_3_1.text
+        mWater_3_1.text = mWater_3_1.text == "" ? String(self.mPreviousUserData[3].mElecValue!) : mWater_3_1.text
         
-        mElec_2_2.text = mElec_2_2.text == "" ? "0" : mElec_2_2.text
-        mWater_2_2.text = mWater_2_2.text == "" ? "0" : mWater_2_2.text
+        mElec_3_2.text = mElec_3_2.text == "" ? String(self.mPreviousUserData[4].mElecValue!) : mElec_3_2.text
+        mWater_3_2.text = mWater_3_2.text == "" ? String(self.mPreviousUserData[4].mElecValue!) : mWater_3_2.text
         
-        mElec_3_2.text = mElec_3_2.text == "" ? "0" : mElec_3_2.text
-        mWater_3_2.text = mWater_3_2.text == "" ? "0" : mWater_3_2.text
-        
-        mElec_4_2.text = mElec_4_2.text == "" ? "0" : mElec_4_2.text
-        mWater_4_2.text = mWater_4_2.text == "" ? "0" : mWater_4_2.text
+        mElec_4_2.text = mElec_4_2.text == "" ? String(self.mPreviousUserData[5].mElecValue!) : mElec_4_2.text
+        mWater_4_2.text = mWater_4_2.text == "" ? String(self.mPreviousUserData[5].mElecValue!) : mWater_4_2.text
     }
     
     func observePreviousUserData() {
+        let placeHolder = "Previous Value: "
         API.user.observeUserDataWithDate(date: "01_2019", completion: { (previousUserData) in
             self.mPreviousUserData.append(previousUserData)
+            
+            if self.mPreviousUserData.count == 6 {
+                self.mElec_1_1.placeholder = placeHolder + String(self.mPreviousUserData[0].mElecValue!)
+                self.mWater_1_1.placeholder = placeHolder + String(self.mPreviousUserData[0].mWaterValue!)
+                
+                self.mElec_1_2.placeholder = placeHolder + String(self.mPreviousUserData[1].mElecValue!)
+                self.mWater_1_2.placeholder = placeHolder + String(self.mPreviousUserData[1].mWaterValue!)
+                
+                self.mElec_2_2.placeholder = placeHolder + String(self.mPreviousUserData[2].mElecValue!)
+                self.mWater_2_2.placeholder = placeHolder + String(self.mPreviousUserData[2].mWaterValue!)
+                
+                self.mElec_3_1.placeholder = placeHolder + String(self.mPreviousUserData[3].mElecValue!)
+                self.mWater_3_1.placeholder = placeHolder + String(self.mPreviousUserData[3].mWaterValue!)
+                
+                self.mElec_3_2.placeholder = placeHolder + String(self.mPreviousUserData[4].mElecValue!)
+                self.mWater_3_2.placeholder = placeHolder + String(self.mPreviousUserData[4].mWaterValue!)
+                
+                self.mElec_4_2.placeholder = placeHolder + String(self.mPreviousUserData[5].mElecValue!)
+                self.mWater_4_2.placeholder = placeHolder + String(self.mPreviousUserData[5].mWaterValue!)
+            }
         })
     }
     
@@ -154,19 +173,12 @@ class InputPageViewController: BaseViewController, NVActivityIndicatorViewable {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         observePreviousUserData()
-        
-       
-    }
-    
-    @objc func firstButton() {
-        print("First button tapped")
     }
 }
 
-
 extension InputPageViewController {
     func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(InputPageViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }

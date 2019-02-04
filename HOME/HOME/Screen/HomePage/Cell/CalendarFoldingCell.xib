@@ -99,7 +99,7 @@
                                     <constraint firstAttribute="trailing" secondItem="oWR-a9-AJu" secondAttribute="trailing" id="xiP-oR-Boa"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8 days left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yyo-9R-84i">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8 days left" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yyo-9R-84i">
                                 <rect key="frame" x="20" y="80" width="371" height="260"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="65"/>
                                 <color key="textColor" red="0.9369271993637085" green="0.52214580774307251" blue="0.49012845754623413" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

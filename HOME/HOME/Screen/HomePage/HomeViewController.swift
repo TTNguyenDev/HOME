@@ -22,7 +22,7 @@ import FoldingCell
 import NVActivityIndicatorView
 
 class HomeViewController: BaseViewController, NVActivityIndicatorViewable {
-
+    
     @IBOutlet var tableView: UITableView!
     
     enum Const {
@@ -49,7 +49,6 @@ class HomeViewController: BaseViewController, NVActivityIndicatorViewable {
     fileprivate func setupIndicator() {
         let size = CGSize(width: 80, height: 80)
         let indicatorType = NVActivityIndicatorType.init(rawValue: 29)
-        
         startAnimating(size, message: "Loading...", messageFont: UIFont.boldSystemFont(ofSize: 20), type: indicatorType, color: .red, padding: 2, displayTimeThreshold: 2, minimumDisplayTime: 2, backgroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), textColor: .red, fadeInAnimation: nil)
     }
     

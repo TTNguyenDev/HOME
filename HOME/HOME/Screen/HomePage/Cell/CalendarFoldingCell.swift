@@ -25,10 +25,15 @@ class CalendarFoldingCell: FoldingCell {
     }
     
     func presentData() {
-        let dayLeft = String(Date.daysLeft()) +  " days left"
-        mDaysLeft.text = dayLeft
-        mDaysLeftContainerView.text = dayLeft
-        mToday.text = "Today: " + Date.getCurrentDate()
+        if Date.daysLeft() == 0 {
+            mDaysLeft.text = "Get room fees"
+            mDaysLeftContainerView.text = "Get room fees"
+        } else {
+            let dayLeft = String(Date.daysLeft()) +  " days left"
+            mDaysLeft.text = dayLeft
+            mDaysLeftContainerView.text = dayLeft
+            mToday.text = "Today: " + Date.getCurrentDate()
+        }
     }
     
     override func animationDuration(_ itemIndex:NSInteger, type:FoldingCell.AnimationType)-> TimeInterval {

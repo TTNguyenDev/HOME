@@ -48,7 +48,6 @@ extension Date {
             let yearAfterAdding = Int(yearFormatter.string(from: year))! + 1
             return String(nextMonth) + "-" + String(yearAfterAdding)
         }
-        
         return String(nextMonth) + "-" + yearString
     }
     
@@ -68,11 +67,8 @@ extension Date {
             let yearAfterAdding = Int(yearFormatter.string(from: year))! - 1
             return String(lastMonth) + "_" + String(yearAfterAdding)
         }
-        
         return String(lastMonth) + "_" + yearString
     }
-    
-    
     
     static func getCurrentYear() -> String {
         let year = Date()
@@ -109,7 +105,6 @@ extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         let formatedConstDate = dateFormatter.date(from: constDate)
-        
         return Calendar.current.dateComponents([.day], from: currentDate, to: formatedConstDate!).day!
     }
 }
@@ -120,7 +115,6 @@ extension NSNumber {
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.numberStyle = .currency
         currencyFormatter.locale = Locale.current
-        
         return currencyFormatter.string(from: self)!
     }
 }
