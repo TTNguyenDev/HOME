@@ -16,7 +16,7 @@ class InputPageViewController: BaseViewController, NVActivityIndicatorViewable, 
     var mUserData = [UserData]()
     var mPreviousUserData = [UserData]()
     var mCalcalateButtonIsTouch = false
-   
+    
     //Phòng 1.1
     @IBOutlet var mElec_1_1: BaseTextInput!
     @IBOutlet var mWater_1_1: BaseTextInput!
@@ -78,18 +78,25 @@ class InputPageViewController: BaseViewController, NVActivityIndicatorViewable, 
     }
     
     @IBAction func saveButton(_ sender: Any) {
-        confirmSaveDataAlert {
-            self.checkInputValue()
-            self.mUserData.append(UserData(roomId: "p1_1", elecValue: Int(self.mElec_1_1.text!)!, waterValue: Int(self.mWater_1_1.text!)!))
-            self.mUserData.append(UserData(roomId: "p1_2", elecValue: Int(self.mElec_1_2.text!)!, waterValue: Int(self.mWater_1_2.text!)!))
-            self.mUserData.append(UserData(roomId: "p2_2", elecValue: Int(self.mElec_2_2.text!)!, waterValue: Int(self.mWater_2_2.text!)!))
-            self.mUserData.append(UserData(roomId: "p3_1", elecValue: Int(self.mElec_3_1.text!)!, waterValue: Int(self.mWater_3_1.text!)!))
-            self.mUserData.append(UserData(roomId: "p3_2", elecValue: Int(self.mElec_3_2.text!)!, waterValue: Int(self.mWater_3_2.text!)!))
-            self.mUserData.append(UserData(roomId: "p4_2", elecValue: Int(self.mElec_4_2.text!)!, waterValue: Int(self.mWater_4_2.text!)!))
-            
-            //Calculate
-            Bussiness.manage.calculateWith(previousUserData: self.mPreviousUserData, userData: self.mUserData)
-            self.mCalcalateButtonIsTouch = true
+        
+        if (checkInputValue()) {
+            confirmSaveDataAlert {
+                self.mUserData.append(UserData(roomId: "p1_1", elecValue: Int(self.mElec_1_1.text!)!, waterValue: Int(self.mWater_1_1.text!)!))
+                self.mUserData.append(UserData(roomId: "p1_2", elecValue: Int(self.mElec_1_2.text!)!, waterValue: Int(self.mWater_1_2.text!)!))
+                self.mUserData.append(UserData(roomId: "p2_2", elecValue: Int(self.mElec_2_2.text!)!, waterValue: Int(self.mWater_2_2.text!)!))
+                self.mUserData.append(UserData(roomId: "p3_1", elecValue: Int(self.mElec_3_1.text!)!, waterValue: Int(self.mWater_3_1.text!)!))
+                self.mUserData.append(UserData(roomId: "p3_2", elecValue: Int(self.mElec_3_2.text!)!, waterValue: Int(self.mWater_3_2.text!)!))
+                self.mUserData.append(UserData(roomId: "p4_2", elecValue: Int(self.mElec_4_2.text!)!, waterValue: Int(self.mWater_4_2.text!)!))
+                
+                //Calculate
+                Bussiness.manage.calculateWith(previousUserData: self.mPreviousUserData, userData: self.mUserData)
+                self.mCalcalateButtonIsTouch = true
+                
+                self.removeAllUserDefault()
+            }
+        } else {
+            let alert = SCLAlertView()
+            _ = alert.showError("Can't calculate this data", subTitle: "You missing some value, please fill all and try again")
         }
     }
     
@@ -122,24 +129,16 @@ class InputPageViewController: BaseViewController, NVActivityIndicatorViewable, 
         mWater_4_2.text = "13"
     }
     
-    fileprivate func checkInputValue() {
-        mElec_1_1.text = mElec_1_1.text == "" ? String(self.mPreviousUserData[0].mElecValue!) : mElec_1_1.text
-        mWater_1_1.text = mWater_1_1.text == "" ? String(self.mPreviousUserData[0].mWaterValue!) : mWater_1_1.text
-        
-        mElec_1_2.text = mElec_1_2.text == "" ? String(self.mPreviousUserData[1].mElecValue!) : mElec_1_2.text
-        mWater_1_2.text = mWater_1_2.text == "" ? String(self.mPreviousUserData[1].mElecValue!) : mWater_1_2.text
-        
-        mElec_2_2.text = mElec_2_2.text == "" ? String(self.mPreviousUserData[2].mElecValue!) : mElec_2_2.text
-        mWater_2_2.text = mWater_2_2.text == "" ? String(self.mPreviousUserData[2].mElecValue!) : mWater_2_2.text
-        
-        mElec_3_1.text = mElec_3_1.text == "" ? String(self.mPreviousUserData[3].mElecValue!) : mElec_3_1.text
-        mWater_3_1.text = mWater_3_1.text == "" ? String(self.mPreviousUserData[3].mElecValue!) : mWater_3_1.text
-        
-        mElec_3_2.text = mElec_3_2.text == "" ? String(self.mPreviousUserData[4].mElecValue!) : mElec_3_2.text
-        mWater_3_2.text = mWater_3_2.text == "" ? String(self.mPreviousUserData[4].mElecValue!) : mWater_3_2.text
-        
-        mElec_4_2.text = mElec_4_2.text == "" ? String(self.mPreviousUserData[5].mElecValue!) : mElec_4_2.text
-        mWater_4_2.text = mWater_4_2.text == "" ? String(self.mPreviousUserData[5].mElecValue!) : mWater_4_2.text
+    fileprivate func checkInputValue() -> Bool {
+        if mElec_1_1.text != "" && mWater_1_1.text != "" &&
+            mElec_3_1.text != "" && mWater_3_1.text != "" &&
+            mElec_1_2.text != "" && mWater_1_2.text != "" &&
+            mElec_2_2.text != "" && mWater_2_2.text != "" &&
+            mElec_3_2.text != "" && mWater_3_2.text != "" &&
+            mElec_4_2.text != "" && mWater_4_2.text != "" {
+            return true
+        }
+        return false
     }
     
     func observePreviousUserData() {
@@ -169,8 +168,31 @@ class InputPageViewController: BaseViewController, NVActivityIndicatorViewable, 
         })
     }
     
+    func checkWrongValueInputForEach(textField: UITextField, type: Int) {
+      
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
-        UserDefaults.standard.set(textField.text, forKey: String(textField.tag))
+        if textField.tag > 0 {
+            if Int(textField.text!)! <= mPreviousUserData[textField.tag - 1].mElecValue! {
+                print("elec case \(mPreviousUserData[textField.tag - 1].mElecValue!)")
+                createAlertWithSubTitle()
+            } else {
+                UserDefaults.standard.set(textField.text, forKey: String(textField.tag))
+            }
+        } else {
+            if Int(textField.text!)! <= mPreviousUserData[-textField.tag - 1].mWaterValue! {
+                 print("elec case \(mPreviousUserData[-textField.tag - 1].mWaterValue!)")
+                createAlertWithSubTitle()
+            } else {
+                UserDefaults.standard.set(textField.text, forKey: String(textField.tag))
+            }
+        }
+    }
+   
+    func createAlertWithSubTitle() {
+        let alert = SCLAlertView()
+        _ = alert.showEdit("Wrong input value", subTitle: "Your value is smaller than the previous one")
     }
     
     fileprivate func setupUITextFieldDelegate() {

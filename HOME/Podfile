@@ -9,7 +9,6 @@ target 'HOME' do
   pod 'Firebase/Database'
   pod 'FoldingCell'
   pod 'NVActivityIndicatorView'
-  pod 'Charts'
   pod 'M13Checkbox'
   pod 'SCLAlertView'
   # Pods for HOME
