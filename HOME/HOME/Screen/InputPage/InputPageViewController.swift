@@ -11,12 +11,12 @@ import FirebaseDatabase
 import NVActivityIndicatorView
 import SCLAlertView
 
-class InputPageViewController: BaseViewController, NVActivityIndicatorViewable {
+class InputPageViewController: BaseViewController, NVActivityIndicatorViewable, UITextFieldDelegate {
     
     var mUserData = [UserData]()
     var mPreviousUserData = [UserData]()
     var mCalcalateButtonIsTouch = false
-    
+   
     //Phòng 1.1
     @IBOutlet var mElec_1_1: BaseTextInput!
     @IBOutlet var mWater_1_1: BaseTextInput!
@@ -125,7 +125,7 @@ class InputPageViewController: BaseViewController, NVActivityIndicatorViewable {
     fileprivate func checkInputValue() {
         mElec_1_1.text = mElec_1_1.text == "" ? String(self.mPreviousUserData[0].mElecValue!) : mElec_1_1.text
         mWater_1_1.text = mWater_1_1.text == "" ? String(self.mPreviousUserData[0].mWaterValue!) : mWater_1_1.text
-      
+        
         mElec_1_2.text = mElec_1_2.text == "" ? String(self.mPreviousUserData[1].mElecValue!) : mElec_1_2.text
         mWater_1_2.text = mWater_1_2.text == "" ? String(self.mPreviousUserData[1].mElecValue!) : mWater_1_2.text
         
@@ -169,10 +169,70 @@ class InputPageViewController: BaseViewController, NVActivityIndicatorViewable {
         })
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        UserDefaults.standard.set(textField.text, forKey: String(textField.tag))
+    }
+    
+    fileprivate func setupUITextFieldDelegate() {
+        mElec_1_1.delegate = self
+        mWater_1_1.delegate = self
+        mElec_3_1.delegate = self
+        mWater_3_1.delegate = self
+        mElec_1_2.delegate = self
+        mWater_1_2.delegate = self
+        mElec_2_2.delegate = self
+        mWater_2_2.delegate = self
+        mElec_3_2.delegate = self
+        mWater_3_2.delegate = self
+        mElec_4_2.delegate = self
+        mWater_4_2.delegate = self
+        
+        mElec_1_1.tag = 1
+        mWater_1_1.tag = -1
+        mElec_3_1.tag = 2
+        mWater_3_1.tag = -2
+        mElec_1_2.tag = 3
+        mWater_1_2.tag = -3
+        mElec_2_2.tag = 4
+        mWater_2_2.tag = -4
+        mElec_3_2.tag = 5
+        mWater_3_2.tag = -5
+        mElec_4_2.tag = 6
+        mWater_4_2.tag = -6
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         observePreviousUserData()
+        
+        setupUITextFieldDelegate()
+        showCachingData()
+    }
+    
+    func showCachingData() {
+        mElec_1_1.text  = UserDefaults.standard.string(forKey: "1") ?? ""
+        mWater_1_1.text = UserDefaults.standard.string(forKey: "-1") ?? ""
+        
+        mElec_1_2.text  = UserDefaults.standard.string(forKey: "2") ?? ""
+        mWater_1_2.text = UserDefaults.standard.string(forKey: "-2") ?? ""
+        
+        mElec_2_2.text  = UserDefaults.standard.string(forKey: "3") ?? ""
+        mWater_2_2.text = UserDefaults.standard.string(forKey: "-3") ?? ""
+        
+        mElec_3_1.text  = UserDefaults.standard.string(forKey: "4") ?? ""
+        mWater_3_1.text = UserDefaults.standard.string(forKey: "-4") ?? ""
+        
+        mElec_3_2.text  = UserDefaults.standard.string(forKey: "5") ?? ""
+        mWater_3_2.text = UserDefaults.standard.string(forKey: "-5") ?? ""
+        
+        mElec_4_2.text  = UserDefaults.standard.string(forKey: "6") ?? ""
+        mWater_4_2.text = UserDefaults.standard.string(forKey: "-6") ?? ""
+    }
+    
+    func removeAllUserDefault() {
+        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        UserDefaults.standard.synchronize()
     }
 }
 
