@@ -60,26 +60,26 @@ public class IntroViewController: UIViewController, UITabBarControllerDelegate, 
         content.title = "Alert"
         content.body = "Today is 5th, let's get room fees"
         content.badge = 1
-        
+
         UNUserNotificationCenter.current().delegate = self
-        
+
         var morningAlert = DateComponents()
         morningAlert.hour = 8
         morningAlert.minute = 00
         morningAlert.day = 05
-        
+
         var eveningAlert = DateComponents()
         eveningAlert.hour = 19
         eveningAlert.minute = 00
         eveningAlert.day = 05
-        
+
         let morningTrigger = UNCalendarNotificationTrigger(dateMatching: morningAlert, repeats: true)
         let eveningTrigger = UNCalendarNotificationTrigger(dateMatching: eveningAlert, repeats: true)
-        
+
         let morningRequest = UNNotificationRequest(identifier: "Request with DateComponents", content: content, trigger: morningTrigger)
-        
+
         let eveningRequest = UNNotificationRequest(identifier: "Request with DateComponents", content: content, trigger: eveningTrigger)
-        
+
         UNUserNotificationCenter.current().add(morningRequest, withCompletionHandler: nil)
         UNUserNotificationCenter.current().add(eveningRequest, withCompletionHandler: nil)
         UNUserNotificationCenter.current().delegate = self

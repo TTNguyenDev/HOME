@@ -32,8 +32,14 @@ class UserApi {
         USERDATA_REF.child(mCurrentMonth).child(id).child("mState").setValue(true)
     }
     
-    func saveManageData(totalOfMonth: Int, totalFees: Int) {
-        MANAGE_REF.child(mCurrentMonth).setValue(["mTotalBalanceOfMonth": totalOfMonth, "mTotalFees": totalFees])
+    func saveManageData(totalOfMonth: Int, totalFees: Int, recieved: Int) {
+        MANAGE_REF.child(mCurrentMonth).setValue(["mTotalBalanceOfMonth": totalOfMonth, "mTotalFees": totalFees, "mRecieved": recieved])
+    }
+    
+    func updateReciedValue() {
+        MANAGE_REF.child(mCurrentMonth).child("mRecieved").observeSingleEvent(of: .value) { (snapshot) in
+            print(snapshot)
+        }
     }
     
     func observeManageData(completion: @escaping (Manage) -> Void) {

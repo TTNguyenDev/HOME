@@ -27,7 +27,7 @@ class HomeViewController: BaseViewController, NVActivityIndicatorViewable {
     
     enum Const {
         static let closeCellHeight: CGFloat = 150
-        static let openCellHeight: CGFloat = 370
+        static let openCellHeight: CGFloat = 350
         static let rowsCount = 3
     }
     
@@ -148,11 +148,11 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             cell.unfold(true, animated: true, completion: nil)
             duration = 0.5
         } else if cellIsCollapsed  && indexPath.row == 1 {
-            cellHeights[indexPath.row] = Const.openCellHeight + 40
+            cellHeights[indexPath.row] = Const.openCellHeight + 30
             cell.unfold(true, animated: true, completion: nil)
             duration = 0.5
         } else if cellIsCollapsed  && indexPath.row == 2 {
-            cellHeights[indexPath.row] = Const.openCellHeight + 40
+            cellHeights[indexPath.row] = Const.openCellHeight + 32
             cell.unfold(true, animated: true, completion: nil)
             duration = 0.5
         } else {

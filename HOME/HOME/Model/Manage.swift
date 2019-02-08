@@ -20,7 +20,7 @@ class Manage {
     var mPaperForEachRoom = [String]()
     var mTotalBalance: Int?
     var mTotalBalanceOfMonth: Int?
-    var mRecieved: Int  = 0      //*
+    var mRecieved: Int?    //*
     var mTotalFees: Int? //*
     
     let mIsDataDidChanged = Notification.Name(isDataDidChanged)
@@ -39,9 +39,22 @@ class Manage {
             self.mUserData.append(userData)
             if self.mUserData.count == 6 {
                 self.calculateWith(previousUserData: self.mPreviousUserData, userData: self.mUserData)
+                self.recievedInit()
                 completion()
             }
         }
+    }
+    
+    func recievedInit() {
+        for i in 0..<6 {
+            if mUserData[i].mState! {
+                mRecieved! += mTotalOfEachRoom[i]
+            }
+        }
+    }
+    
+    func getRecieved() -> Int {
+        return mRecieved!
     }
     
     func removePreviousData() {
@@ -116,6 +129,9 @@ class Manage {
     
     func setUserStateByIdNumber(idNumber: Int) {
         API.user.setStateUserWith(id: reconizeIdByNumber(idNumber: idNumber))
+        mUserData[idNumber].mState = true
+        mRecieved! += mTotalOfEachRoom[idNumber]
+        self.dataChangedValue()
     }
     
     func getUserData() -> [UserData] {
@@ -139,7 +155,7 @@ class Manage {
         mTotalBalanceOfMonth = mTotalOfEachRoom.reduce(0, +)
         mTotalFees = mElecFeesOfEachRoom.reduce(0, +) + mWaterFeesOfEachRoom.reduce(0, +)
         
-        API.user.saveManageData(totalOfMonth: mTotalBalanceOfMonth!, totalFees: mTotalFees!)
+        API.user.saveManageData(totalOfMonth: mTotalBalanceOfMonth!, totalFees: mTotalFees!, recieved: mRecieved!)
         self.dataChangedValue()
         
     }
@@ -201,6 +217,8 @@ extension Manage {
         let manage = Manage()
         manage.mTotalBalanceOfMonth = dictionary["mTotalBalanceOfMonth"] as? Int
         manage.mTotalFees = dictionary["mTotalFees"] as? Int
+        manage.mRecieved = dictionary["mRecieved"] as? Int
+        print(dictionary["mRecieved"] as? Int)
         return manage
     }
 }

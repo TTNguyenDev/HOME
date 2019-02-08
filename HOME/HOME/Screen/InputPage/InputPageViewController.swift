@@ -168,19 +168,15 @@ class InputPageViewController: BaseViewController, NVActivityIndicatorViewable, 
         })
     }
     
-    func checkWrongValueInputForEach(textField: UITextField, type: Int) {
-      
-    }
-    
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField.tag > 0 {
+        if textField.tag > 0 && textField.text != "" {
             if Int(textField.text!)! <= mPreviousUserData[textField.tag - 1].mElecValue! {
                 print("elec case \(mPreviousUserData[textField.tag - 1].mElecValue!)")
                 createAlertWithSubTitle()
             } else {
                 UserDefaults.standard.set(textField.text, forKey: String(textField.tag))
             }
-        } else {
+        } else if textField.text != "" {
             if Int(textField.text!)! <= mPreviousUserData[-textField.tag - 1].mWaterValue! {
                  print("elec case \(mPreviousUserData[-textField.tag - 1].mWaterValue!)")
                 createAlertWithSubTitle()

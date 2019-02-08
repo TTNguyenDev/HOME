@@ -13,7 +13,10 @@ class StatusFoldingCell: FoldingCell {
     
     var mUserData = [UserData]()
     var mRoomTotalValue = [Int]()
+    let name = Notification.Name(rawValue: isDataDidChanged)
     
+    @IBOutlet var mProcessValue: UILabel!
+    @IBOutlet var mStatusSlider: UISlider!
     @IBOutlet var mUserStateTableView: UITableView!
     
     override func awakeFromNib() {
@@ -28,14 +31,27 @@ class StatusFoldingCell: FoldingCell {
         mUserStateTableView.separatorColor = .clear
         
         mUserStateTableView.register(UINib(nibName: "UserStateTableViewCell", bundle: nil), forCellReuseIdentifier: "UserStateCell")
+    
+        NotificationCenter.default.addObserver(self, selector: #selector(recievedData), name: name, object: nil)
     }
     
-    
-    
+    @objc func recievedData() {
+        mStatusSlider.value += 1/6
+        mProcessValue.text = String(mStatusSlider.value*100) + "%"
+    }
+
     func fillUserData() {
         mUserData = Bussiness.manage.getUserData()
         mRoomTotalValue = Bussiness.manage.getTotalOfEachRoom()
-    
+        
+        Bussiness.manage.getUserData().forEach { (userData) in
+            if userData.mState! {
+                mStatusSlider.value += 100/600
+                print(mStatusSlider.value)
+            }
+        }
+         mStatusSlider.setThumbImage(UIImage(), for: .normal)
+         mProcessValue.text = String(mStatusSlider.value*100) + "%"
     }
     
     override func animationDuration(_ itemIndex:NSInteger, type:FoldingCell.AnimationType)-> TimeInterval {
@@ -64,6 +80,7 @@ extension StatusFoldingCell: UITableViewDataSource, UITableViewDelegate {
         }
         
         cell.buttonAction = { sender in
+            print(indexPath.row)
             Bussiness.manage.setUserStateByIdNumber(idNumber: indexPath.row)
         }
         return cell

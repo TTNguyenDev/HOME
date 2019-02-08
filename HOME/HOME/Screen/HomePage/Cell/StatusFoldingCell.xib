@@ -47,10 +47,12 @@
                                         <color key="textColor" red="0.39215686274509803" green="0.96470588235294119" blue="0.72941176470588232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.69999999999999996" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="AOj-aw-QDF">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="AOj-aw-QDF">
                                         <rect key="frame" x="8" y="90" width="341" height="31"/>
-                                        <color key="minimumTrackTintColor" red="0.12016952782869339" green="0.92194408178329468" blue="0.59102827310562134" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="minimumTrackTintColor" red="0.3921568627" green="0.96470588239999999" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="thumbTintColor" red="0.0" green="0.96470588239999999" blue="0.64313725489999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="70%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iX9-NX-Vaw">
                                         <rect key="frame" x="313" y="64" width="34" height="21"/>
@@ -85,7 +87,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W20-iI-gvi" customClass="RotatedView" customModule="FoldingCell">
-                        <rect key="frame" x="10" y="200" width="476" height="360"/>
+                        <rect key="frame" x="10" y="200" width="476" height="362"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7xI-Dy-vCe" userLabel="titleBox">
                                 <rect key="frame" x="0.0" y="0.0" width="476" height="60"/>
@@ -107,7 +109,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g44-Pg-qi7">
-                                <rect key="frame" x="10" y="60" width="466" height="300"/>
+                                <rect key="frame" x="10" y="60" width="466" height="302"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -122,7 +124,7 @@
                             <constraint firstAttribute="trailing" secondItem="7xI-Dy-vCe" secondAttribute="trailing" id="HLK-6M-iaT"/>
                             <constraint firstAttribute="bottom" secondItem="g44-Pg-qi7" secondAttribute="bottom" id="HUv-L2-y8Z"/>
                             <constraint firstItem="g44-Pg-qi7" firstAttribute="leading" secondItem="W20-iI-gvi" secondAttribute="leading" constant="10" id="WNu-Pe-e4z"/>
-                            <constraint firstAttribute="height" constant="360" id="dYH-UD-7UX"/>
+                            <constraint firstAttribute="height" constant="362" id="dYH-UD-7UX"/>
                             <constraint firstAttribute="trailing" secondItem="g44-Pg-qi7" secondAttribute="trailing" id="mco-rs-Kh9"/>
                         </constraints>
                     </view>
@@ -149,6 +151,8 @@
                 <outlet property="containerViewTop" destination="kFn-2v-gbd" id="Y3y-VU-0WH"/>
                 <outlet property="foregroundView" destination="ESB-pM-dae" id="Gv2-Lu-78G"/>
                 <outlet property="foregroundViewTop" destination="eXx-df-DQJ" id="nP7-MX-iAD"/>
+                <outlet property="mProcessValue" destination="iX9-NX-Vaw" id="Cbb-7Q-cTZ"/>
+                <outlet property="mStatusSlider" destination="AOj-aw-QDF" id="3if-wf-ss0"/>
                 <outlet property="mUserStateTableView" destination="g44-Pg-qi7" id="mRw-X1-waZ"/>
             </connections>
             <point key="canvasLocation" x="281.60000000000002" y="487.10644677661173"/>

@@ -11,9 +11,9 @@ import M13Checkbox
 
 class UserStateTableViewCell: UITableViewCell {
     
-    @IBOutlet var mCheckBox: UIView!
     
     var buttonAction: ((Any) -> Void)?
+    @IBOutlet var mCheckBox: UIView!
     @IBOutlet var mRoomId: UILabel!
     @IBOutlet var mRoomTotalValue: UILabel!
     
