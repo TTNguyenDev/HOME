@@ -31,11 +31,16 @@ class Manage {
     func ditInit(completion: @escaping () -> Void) {
         removePreviousData()
         
-        API.user.observeUserDataWithDate(date: "01_2019") { (previousUserData) in
+        let lastMonth = Date.getLastMonth()
+        print(lastMonth)
+        let currentMonth = Date.getCurrentMonth()
+        print(currentMonth)
+        
+        API.user.observeUserDataWithDate(date: lastMonth) { (previousUserData) in
             self.mPreviousUserData.append(previousUserData)
         }
         
-        API.user.observeUserDataWithDate(date: "02_2019") { (userData) in
+        API.user.observeUserDataWithDate(date: currentMonth) { (userData) in
             self.mUserData.append(userData)
             if self.mUserData.count == 6 {
                 self.calculateWith(previousUserData: self.mPreviousUserData, userData: self.mUserData)
@@ -183,6 +188,8 @@ class Manage {
     func getAllPaper() -> String {
         var paper = ""
         for i in 0..<6 {
+            let mTotalOfEachRoomRounded = Int(round(Double(mTotalOfEachRoom[i]) / 1000) * 1000)
+           
             let paperForEachRoom = """
             
                                         Phiếu thu tiền \(transferRoomID(roomID: mUserData[i].mRoomId!))
@@ -192,16 +199,16 @@ class Manage {
                         - Điện:
                             + Tháng này: \(mUserData[i].mElecValue!)
                             + Tháng trước: \(mPreviousUserData[i].mElecValue!)
-                            + Tiêu thụ: (\(mUserData[i].mElecValue! - mPreviousUserData[i].mElecValue!)) x \(mElecFees) = \(mElecFeesOfEachRoom[i])
+                            + Tiêu thụ: \(mUserData[i].mElecValue! - mPreviousUserData[i].mElecValue!) x \(mElecFees) = \(mElecFeesOfEachRoom[i])
             
                         - Nước:
                             + Tháng này: \(mUserData[i].mWaterValue!)
                             + Tháng trước: \(mPreviousUserData[i].mWaterValue!)
-                            + Tiêu thụ: (\(mUserData[i].mWaterValue! - mPreviousUserData[i].mWaterValue!)) x \(mWaterFees) = \(mWaterFeesOfEachRoom[i])
+                            + Tiêu thụ: \(mUserData[i].mWaterValue! - mPreviousUserData[i].mWaterValue!) x \(mWaterFees) = \(mWaterFeesOfEachRoom[i])
             
                         - Tiền rác: \(mOtherFees)
-                        - TỔNG CỘNG: \(mTotalOfEachRoom[i])
-                                    (Ghi chú: điện: 3300/kW, nước: 5000/khối)
+                        - TỔNG CỘNG: \((mTotalOfEachRoomRounded as NSNumber).transferToCurrency)
+                                (Ghi chú: điện: 3300/kW, nước: 5000/khối)
             
             """
             mPaperForEachRoom.append(paperForEachRoom)

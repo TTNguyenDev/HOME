@@ -12,7 +12,7 @@ import FirebaseDatabase
 class UserApi {
     let USERDATA_REF = Database.database().reference().child("UserData")
     let MANAGE_REF = Database.database().reference().child("Manage")
-    let mCurrentMonth = Date.getCurrent_MonthYear()
+    let mCurrentMonth = Date.getCurrentMonth()
     let mPreviousMonth = Date.getLastMonth()
     
     func observeUserDataWithDate(date: String, completion: @escaping (UserData) -> Void) {
@@ -34,20 +34,5 @@ class UserApi {
     
     func saveManageData(totalOfMonth: Int, totalFees: Int, recieved: Int) {
         MANAGE_REF.child(mCurrentMonth).setValue(["mTotalBalanceOfMonth": totalOfMonth, "mTotalFees": totalFees, "mRecieved": recieved])
-    }
-    
-    func updateReciedValue() {
-        MANAGE_REF.child(mCurrentMonth).child("mRecieved").observeSingleEvent(of: .value) { (snapshot) in
-            print(snapshot)
-        }
-    }
-    
-    func observeManageData(completion: @escaping (Manage) -> Void) {
-        MANAGE_REF.child(mPreviousMonth).observeSingleEvent(of: .value) { (snapShot) in
-            if let dictionary = snapShot.value as? NSDictionary {
-                let manageData = Manage.transformManage(dictionary: dictionary)
-                completion(manageData)
-            }
-        }
     }
 }

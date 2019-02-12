@@ -10,7 +10,7 @@ import Foundation
 
 extension Date {
     
-    static func getCurrent_MonthYear() -> String {
+    static func getCurrentMonth() -> String {
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "MM_yyyy"
@@ -60,13 +60,18 @@ extension Date {
         let currentMonth = Date()
         let monthFormatter = DateFormatter()
         monthFormatter.dateFormat = "MM"
-        var lastMonth = Int(monthFormatter.string(from: currentMonth))! - 1
         
+       
+        var lastMonth = Int(monthFormatter.string(from: currentMonth))! - 1
+    
         if lastMonth == 0 {
             lastMonth = 12
             let yearAfterAdding = Int(yearFormatter.string(from: year))! - 1
             return String(lastMonth) + "_" + String(yearAfterAdding)
+        } else if lastMonth < 10 {
+            return "0" + String(lastMonth) + "_" + yearString
         }
+        
         return String(lastMonth) + "_" + yearString
     }
     
@@ -118,6 +123,8 @@ extension NSNumber {
         return currencyFormatter.string(from: self)!
     }
 }
+
+
 
 
 

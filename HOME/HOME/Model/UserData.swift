@@ -25,7 +25,7 @@ class UserData {
     }
     
     init(roomId: String, elecValue: Int, waterValue: Int) {
-        mDateWrote = Date.getCurrent_MonthYear()
+        mDateWrote = Date.getCurrentMonth()
         mRoomId = roomId
         mElecValue = elecValue
         mWaterValue = waterValue
