@@ -24,6 +24,7 @@ class ReviewDataViewController: BaseViewController {
     }
     
     @objc func confirmSaveDataAlert() {
+        //Alert
         let alert = SCLAlertView()
         _ = alert.addButton("Confirm") {
             let file = Date.getCurrent_MonthYearString() + ".txt"
