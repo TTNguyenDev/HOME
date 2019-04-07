@@ -45,6 +45,10 @@ class InputPageViewController: BaseViewController, NVActivityIndicatorViewable, 
     @IBOutlet var mainStack: UIStackView!
     @IBOutlet var stack: UIStackView!
     
+    
+    @IBOutlet var mBottomContraint: NSLayoutConstraint!
+    
+    
     fileprivate func setupIndicator() {
         let size = CGSize(width: 80, height: 80)
         let indicatorType = NVActivityIndicatorType.init(rawValue: 29)
@@ -178,13 +182,15 @@ class InputPageViewController: BaseViewController, NVActivityIndicatorViewable, 
             }
         } else if textField.text != "" {
             if Int(textField.text!)! <= mPreviousUserData[-textField.tag - 1].mWaterValue! {
-                 print("elec case \(mPreviousUserData[-textField.tag - 1].mWaterValue!)")
+                 print("water case \(mPreviousUserData[-textField.tag - 1].mWaterValue!)")
                 createAlertWithSubTitle()
             } else {
                 UserDefaults.standard.set(textField.text, forKey: String(textField.tag))
             }
         }
     }
+    
+   
    
     func createAlertWithSubTitle() {
         let alert = SCLAlertView()
@@ -207,12 +213,12 @@ class InputPageViewController: BaseViewController, NVActivityIndicatorViewable, 
         
         mElec_1_1.tag = 1
         mWater_1_1.tag = -1
-        mElec_3_1.tag = 2
-        mWater_3_1.tag = -2
-        mElec_1_2.tag = 3
-        mWater_1_2.tag = -3
-        mElec_2_2.tag = 4
-        mWater_2_2.tag = -4
+        mElec_1_2.tag = 2
+        mWater_1_2.tag = -2
+        mElec_2_2.tag = 3
+        mWater_2_2.tag = -3
+        mElec_3_1.tag = 4
+        mWater_3_1.tag = -4
         mElec_3_2.tag = 5
         mWater_3_2.tag = -5
         mElec_4_2.tag = 6

@@ -31,21 +31,40 @@ class Manage {
     func ditInit(completion: @escaping () -> Void) {
         removePreviousData()
         
-        let lastMonth = Date.getLastMonth()
+        var lastMonth = Date.getLastMonth()
         print(lastMonth)
-        let currentMonth = Date.getCurrentMonth()
+        var currentMonth = Date.getCurrentMonth()
         print(currentMonth)
         
-        API.user.observeUserDataWithDate(date: lastMonth) { (previousUserData) in
-            self.mPreviousUserData.append(previousUserData)
-        }
-        
-        API.user.observeUserDataWithDate(date: currentMonth) { (userData) in
-            self.mUserData.append(userData)
-            if self.mUserData.count == 6 {
-                self.calculateWith(previousUserData: self.mPreviousUserData, userData: self.mUserData)
-                self.recievedInit()
-                completion()
+        API.user.checkDataExisted(date: currentMonth, nonExisted: {
+            currentMonth = Date.getLastMonth()
+            lastMonth = Date.getLastLastMonth()
+            
+            API.user.observeUserDataWithDate(date: lastMonth) { (previousUserData) in
+                self.mPreviousUserData.append(previousUserData)
+            }
+            
+            API.user.observeUserDataWithDate(date: currentMonth) { (userData) in
+                self.mUserData.append(userData)
+                if self.mUserData.count == 6 {
+                    self.calculateWith(previousUserData: self.mPreviousUserData, userData: self.mUserData)
+                    self.recievedInit()
+                    completion()
+                }
+            }
+        }) {
+            
+            API.user.observeUserDataWithDate(date: lastMonth) { (previousUserData) in
+                self.mPreviousUserData.append(previousUserData)
+            }
+            
+            API.user.observeUserDataWithDate(date: currentMonth) { (userData) in
+                self.mUserData.append(userData)
+                if self.mUserData.count == 6 {
+                    self.calculateWith(previousUserData: self.mPreviousUserData, userData: self.mUserData)
+                    self.recievedInit()
+                    completion()
+                }
             }
         }
     }
@@ -225,7 +244,7 @@ extension Manage {
         manage.mTotalBalanceOfMonth = dictionary["mTotalBalanceOfMonth"] as? Int
         manage.mTotalFees = dictionary["mTotalFees"] as? Int
         manage.mRecieved = dictionary["mRecieved"] as? Int
-        print(dictionary["mRecieved"] as? Int)
+        print(dictionary["mRecieved"] as! Int)
         return manage
     }
 }

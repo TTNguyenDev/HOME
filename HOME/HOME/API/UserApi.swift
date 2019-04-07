@@ -24,6 +24,16 @@ class UserApi {
         }
     }
     
+    func checkDataExisted(date: String, nonExisted: @escaping () -> Void, existed: @escaping () -> Void) {
+        USERDATA_REF.child(date).observeSingleEvent(of: .value) { (snapshot) in
+            if !snapshot.exists() {
+                nonExisted()
+            } else {
+                existed()
+            }
+        }
+    }
+    
     func saveUserData(roomId: String, elecValue: Int, waterValue: Int) {
         USERDATA_REF.child(mCurrentMonth).child(roomId).setValue(["mDateWrote": mCurrentMonth, "mRoomId": roomId, "mElecValue": elecValue, "mWaterValue": waterValue, "mState": false])
     }

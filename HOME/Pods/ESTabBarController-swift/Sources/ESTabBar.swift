@@ -328,7 +328,7 @@ internal extension ESTabBar /* Actions */ {
     
     @objc internal func select(itemAtIndex idx: Int, animated: Bool) {
         let newIndex = max(0, idx)
-        let currentIndex = (selectedItem != nil) ? (items?.index(of: selectedItem!) ?? -1) : -1
+        let currentIndex = (selectedItem != nil) ? (items?.firstIndex(of: selectedItem!) ?? -1) : -1
         guard newIndex < items?.count ?? 0, let item = self.items?[newIndex], item.isEnabled == true else {
             return
         }

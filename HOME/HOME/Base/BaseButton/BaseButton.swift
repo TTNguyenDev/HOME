@@ -22,7 +22,7 @@ class BaseButton: UIButton {
     
     fileprivate func didInit() {
         self.heightAnchor.constraint(equalToConstant: 55).isActive = true
-        self.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        self.backgroundColor = #colorLiteral(red: 0.3137254902, green: 0.4, blue: 0.7254901961, alpha: 1)
         self.clipsToBounds = true
         self.layer.cornerRadius = self.frame.height / 10
     }

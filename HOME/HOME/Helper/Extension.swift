@@ -75,6 +75,30 @@ extension Date {
         return String(lastMonth) + "_" + yearString
     }
     
+    static func getLastLastMonth() -> String {
+        let year = Date()
+        let yearFormatter = DateFormatter()
+        yearFormatter.dateFormat = "yyyy"
+        let yearString = yearFormatter.string(from: year)
+        
+        let currentMonth = Date()
+        let monthFormatter = DateFormatter()
+        monthFormatter.dateFormat = "MM"
+        
+        
+        var lastMonth = Int(monthFormatter.string(from: currentMonth))! - 2
+        
+        if lastMonth == 0 {
+            lastMonth = 12
+            let yearAfterAdding = Int(yearFormatter.string(from: year))! - 1
+            return String(lastMonth) + "_" + String(yearAfterAdding)
+        } else if lastMonth < 10 {
+            return "0" + String(lastMonth) + "_" + yearString
+        }
+        
+        return String(lastMonth) + "_" + yearString
+    }
+    
     static func getCurrentYear() -> String {
         let year = Date()
         let formatter = DateFormatter()

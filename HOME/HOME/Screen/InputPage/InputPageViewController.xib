@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InputPageViewController" customModule="HOME" customModuleProvider="target">
             <connections>
+                <outlet property="mBottomContraint" destination="fUn-Co-OAZ" id="9KI-FF-GRC"/>
                 <outlet property="mElec_1_1" destination="sIf-ck-NoM" id="yF7-Mw-Kky"/>
                 <outlet property="mElec_1_2" destination="eIw-Kb-vrg" id="FvH-ZY-ZHD"/>
                 <outlet property="mElec_2_2" destination="Fkk-50-Pwi" id="e1Y-h7-ac3"/>
