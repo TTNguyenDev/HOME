@@ -227,8 +227,7 @@ class Manage {
             
                         - Tiền rác: \(mOtherFees)
                         - TỔNG CỘNG: \((mTotalOfEachRoomRounded as NSNumber).transferToCurrency)
-                                (Ghi chú: điện: 3300/kW, nước: 5000/khối)
-            
+                                (Ghi chú: điện: 3500/kW, nước: 5000/khối)
             """
             mPaperForEachRoom.append(paperForEachRoom)
             paper += paperForEachRoom

@@ -9,7 +9,7 @@
 import Foundation
 
 
-let mElecFees = 3300
+let mElecFees = 3500
 let mWaterFees = 5000
 let mOtherFees = 13000
 
