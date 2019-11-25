@@ -210,9 +210,9 @@ class Manage {
        
             
         var mTotalOfEachRoomRounded = Int(round(Double(mTotalOfEachRoom[i]) / 1000) * 1000)
-        if mUserData[i].mRoomId == "p2_2" {
-            mTotalOfEachRoomRounded += 70000
-        }
+//        if mUserData[i].mRoomId == "p2_2" {
+//            mTotalOfEachRoomRounded += 70000
+//        }
             
         var paperForEachRoom = """
             
@@ -235,9 +235,9 @@ class Manage {
                                 (Ghi chú: điện: 3500/kW, nước: 5000/khối)
             """
             
-            if mUserData[i].mRoomId == "p2_2" {
-                paperForEachRoom += "\n\t\t - Tiền wifi: 70 000"
-            }
+//            if mUserData[i].mRoomId == "p2_2" {
+//                paperForEachRoom += "\n\t\t - Tiền wifi: 70 000"
+//            }
             mPaperForEachRoom.append(paperForEachRoom)
             paper += paperForEachRoom
         }
