@@ -52,7 +52,7 @@ PODS:
   - GoogleUtilities/UserDefaults (5.3.4):
     - GoogleUtilities/Logger
   - leveldb-library (1.20)
-  - M13Checkbox (3.2.2)
+  - M13Checkbox (3.4.0)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -73,7 +73,7 @@ DEPENDENCIES:
   - SCLAlertView
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - ESTabBarController-swift
     - Firebase
     - FirebaseAnalytics
@@ -100,11 +100,11 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 5029d78f2b438bd30ffb44e6c558b57c21622727
   GoogleUtilities: abb092d2c12e817fa3e0e7b274987dd72fb86ec3
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
-  M13Checkbox: a8c2491cfbbca10797925fd0b9154a782bf40d89
+  M13Checkbox: 6f59404540ac98ba83a3d1afac335895a40c6a5d
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   NVActivityIndicatorView: ec7440a57af2450319d3a4181cca7da6fc127064
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
 
 PODFILE CHECKSUM: 067cee8b0ba9b82e9bb9e710fe02841c10655cde
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.9.3

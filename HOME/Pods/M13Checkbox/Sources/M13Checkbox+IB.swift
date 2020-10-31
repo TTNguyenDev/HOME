@@ -30,7 +30,7 @@ public extension M13Checkbox {
     }
     
     /// A proxy to set the mark type compatible with interface builder.
-    @IBInspectable public var _IBMarkType: String {
+    @IBInspectable var _IBMarkType: String {
         get {
             return markType.rawValue
         }
@@ -44,7 +44,7 @@ public extension M13Checkbox {
     }
     
     /// A proxy to set the box type compatible with interface builder.
-    @IBInspectable public var _IBBoxType: String {
+    @IBInspectable var _IBBoxType: String {
         get {
             return boxType.rawValue
         }
@@ -58,7 +58,7 @@ public extension M13Checkbox {
     }
     
     /// A proxy to set the check state compatible with interface builder.
-    @IBInspectable public var _IBCheckState: String {
+    @IBInspectable var _IBCheckState: String {
         get {
             return checkState.rawValue
         }
