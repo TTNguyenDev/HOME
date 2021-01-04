@@ -31,9 +31,11 @@ class Manage {
     func ditInit(completion: @escaping () -> Void) {
         removePreviousData()
         
-        var lastMonth = Date.getLastMonth()
+        var lastMonth = "11_2020"
+//            Date.getLastMonth()
         print(lastMonth)
-        var currentMonth = Date.getCurrentMonth()
+        var currentMonth = "12_2020"
+//            Date.getCurrentMonth()
         print(currentMonth)
         
         API.user.checkDataExisted(date: currentMonth, nonExisted: {
