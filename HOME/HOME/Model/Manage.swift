@@ -31,10 +31,10 @@ class Manage {
     func ditInit(completion: @escaping () -> Void) {
         removePreviousData()
         
-        var lastMonth = "11_2020"
+        var lastMonth = "12_2020"
 //            Date.getLastMonth()
         print(lastMonth)
-        var currentMonth = "12_2020"
+        var currentMonth = "01_2021"
 //            Date.getCurrentMonth()
         print(currentMonth)
         
