@@ -13,7 +13,7 @@ class User {
     var mRoomId: String?
     var mRoomFees: Int?
     var mPhoneNumber: String?
-    var mFirstDeposit: CLongDouble?
+    var mFirstDeposit: Int?
     var mDateJoined: String?
     
     init() {
@@ -25,12 +25,15 @@ class User {
         mDateJoined = ""
     }
     
-    init(username: String, roomId: String, phoneNumber: String, firstDeposit: CLongDouble, dateJoined: String) {
+    init(username: String, roomId: String, phoneNumber: String, firstDeposit: Int, dateJoined: String, roomFees: Int) {
         mUsername = username
         mRoomId = roomId
         mPhoneNumber = phoneNumber
         mFirstDeposit = firstDeposit
         mDateJoined = dateJoined
+        mRoomFees = roomFees
+        
+        API.user.saveUser(username: mUsername!, roomId: mRoomId!, phoneNumber: mPhoneNumber!, firstDeposit: mFirstDeposit!, dateJoined: mDateJoined!, roomFees: mRoomFees!)
     }
     
      func getRoomFeesUsingRoomId(roomId: String) -> Int{
@@ -38,5 +41,16 @@ class User {
             return mRoomFees!
         }
         return 0
+    }
+    
+    static func transfermUser(dictionary: NSDictionary) -> User {
+        let user = User()
+        user.mUsername = dictionary["mUsername"] as? String
+        user.mRoomId = dictionary["mRoomId"] as? String
+        user.mRoomFees = dictionary["mRoomFees"] as? Int
+        user.mPhoneNumber = dictionary["mPhoneNumber"] as? String
+        user.mFirstDeposit = dictionary["mFirstDeposit"] as? Int
+        user.mDateJoined = dictionary["mDateJoined"] as? String
+        return user
     }
 }

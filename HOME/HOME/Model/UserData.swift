@@ -15,6 +15,7 @@ class UserData {
     var mRoomId: String?
     var mElecValue: Int?
     var mWaterValue: Int?
+    var mWifi: Bool?
     
     init() {
         mDateWrote = ""
@@ -22,16 +23,18 @@ class UserData {
         mElecValue = 0 
         mWaterValue = 0
         mState = false
+        mWifi = false
     }
     
-    init(roomId: String, elecValue: Int, waterValue: Int) {
+    init(roomId: String, elecValue: Int, waterValue: Int , isWifi: Bool) {
         mDateWrote = Date.getCurrentMonth()
         mRoomId = roomId
         mElecValue = elecValue
         mWaterValue = waterValue
+        mWifi = isWifi
         mState = false
         
-        API.user.saveUserData(roomId: mRoomId!, elecValue: mElecValue!, waterValue: mWaterValue!) 
+        API.user.saveUserData(roomId: mRoomId!, elecValue: mElecValue!, waterValue: mWaterValue!, isWifi: mWifi!)
     }
 }
 
@@ -43,6 +46,8 @@ extension UserData {
         userData.mElecValue = dictionary["mElecValue"] as? Int
         userData.mWaterValue = dictionary["mWaterValue"] as? Int
         userData.mState = dictionary["mState"] as? Bool
+        userData.mWifi = dictionary["isWifi"] as? Bool ?? false
         return userData
     }
 }
+ 

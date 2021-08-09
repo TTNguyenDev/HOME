@@ -13,11 +13,11 @@ import UserNotifications
 
 public class IntroViewController: UIViewController, UITabBarControllerDelegate,  UNUserNotificationCenterDelegate {
     
+    var n = CGFloat(0)
     
     @IBAction func mFaceIdLogin(_ sender: Any) {
         let context = LAContext()
         var error: NSError?
-        
         
         guard context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) else {
             return print(error!)
@@ -29,10 +29,11 @@ public class IntroViewController: UIViewController, UITabBarControllerDelegate, 
                 return print(error!)
             }
             
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [self] in
                 let mHomePage = UINavigationController(rootViewController: HomeViewController())
-                let mInputPage = UINavigationController(rootViewController: InputPageViewController())
+                let mInputPage = UINavigationController(rootViewController: InputPage())
                 let mMePage = UINavigationController(rootViewController: MePageViewController())
+                
                 mHomePage.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(), title: "Home", image: UIImage(named: "home"), selectedImage: UIImage(named: "home_1"))
                 
                 mInputPage.tabBarItem = ESTabBarItem.init(ExampleIrregularityBasicContentView(), title: "Input", image: UIImage(named: "find"), selectedImage: UIImage(named: "find_1"))
@@ -43,7 +44,7 @@ public class IntroViewController: UIViewController, UITabBarControllerDelegate, 
                 tabBarController.delegate = self
                 tabBarController.tabBar.shadowImage = UIImage(named: "transparent")
                 tabBarController.tabBar.backgroundColor = UIColor.white
-                
+                n = tabBarController.tabBar.frame.size.height
                 mHomePage.navigationBar.topItem?.title = "Home"
                 mInputPage.navigationBar.topItem?.title = "Input"
                 mMePage.navigationBar.topItem?.title = "My Account"
@@ -67,14 +68,22 @@ public class IntroViewController: UIViewController, UITabBarControllerDelegate, 
                     
                     mMePage.navigationBar.standardAppearance = navBarAppearance
                     mMePage.navigationBar.scrollEdgeAppearance = navBarAppearance
+//                    mMePage.navigationItem = UIBarButtonItem(title: "Add", style: .done, target: self, action: #selector(addTapped))
+                    
+                    tabBarController.overrideUserInterfaceStyle = .light
                 } else {
                     // Fallback on earlier versions
                 }
                 
                 tabBarController.modalPresentationStyle = .fullScreen
+                
                 self.present(tabBarController, animated: true, completion: nil)
             }
         }
+    }
+    
+    @objc func addTapped() {
+            print ("1")
     }
     
     public override func viewDidLoad() {

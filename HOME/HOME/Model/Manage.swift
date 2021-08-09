@@ -12,67 +12,80 @@ import FirebaseDatabase
 let isDataDidChanged = "co.listener.isDataDidChanged"
 
 class Manage {
+    var mUser = [User]()
     var mUserData = [UserData]()
     var mPreviousUserData = [UserData]()
-    var mTotalOfEachRoom = [Int]()          //*
-    var mWaterFeesOfEachRoom = [Int]()      //*
-    var mElecFeesOfEachRoom = [Int]()       //*
+    var mTotalOfEachRoom = [Int]()
+    var mWaterFeesOfEachRoom = [Int]()
+    var mElecFeesOfEachRoom = [Int]()
     var mPaperForEachRoom = [String]()
     var mTotalBalance: Int?
     var mTotalBalanceOfMonth: Int?
-    var mRecieved: Int?    //*
-    var mTotalFees: Int? //*
+    var mRecieved: Int?
+    var mTotalFees: Int?
+    var mRoomFees = [Int]()
+    var isCurrentMonth = true
     
     let mIsDataDidChanged = Notification.Name(isDataDidChanged)
-    
     
     init() {}
     
     func ditInit(completion: @escaping () -> Void) {
         removePreviousData()
         
-        var lastMonth = "12_2020"
-//            Date.getLastMonth()
-        print(lastMonth)
-        var currentMonth = "01_2021"
-//            Date.getCurrentMonth()
-        print(currentMonth)
+        var lastMonth = "06_2021"
+        var currentMonth = "07_2021"
         
-        API.user.checkDataExisted(date: currentMonth, nonExisted: {
+        API.user.observeUser(completion: { [self] (user) in
+            mUser.append(user)
+            mRoomFees.append(user.mRoomFees!)
+        })
+        
+        API.user.checkDataExisted(date: currentMonth, nonExisted: { [self] in
             currentMonth = Date.getLastMonth()
             lastMonth = Date.getLastLastMonth()
-            
-            API.user.observeUserDataWithDate(date: lastMonth) { (previousUserData) in
-                self.mPreviousUserData.append(previousUserData)
+            isCurrentMonth = false
+            getData(lastMonth: lastMonth, currentMonth: currentMonth, completion: {
+                completion()
+            })
+        }) { [self] in
+
+            getData(lastMonth: lastMonth, currentMonth: currentMonth, completion: {
+                completion()
+            })
+        }
+    }
+    
+    func checkStillExist(user: [User], roomID: String) -> Bool {
+        for i in 0 ..< user.count {
+            if roomID == user[i].mRoomId {
+                return true
             }
-            
-            API.user.observeUserDataWithDate(date: currentMonth) { (userData) in
-                self.mUserData.append(userData)
-                if self.mUserData.count == 6 {
-                    self.calculateWith(previousUserData: self.mPreviousUserData, userData: self.mUserData)
-                    self.recievedInit()
-                    completion()
-                }
+        }
+        return false
+    }
+    
+    func getData(lastMonth: String, currentMonth: String, completion: @escaping () -> Void) {
+        API.user.observeUserDataWithDate(date: lastMonth) { [self] (previousUserData) in
+            if checkStillExist(user: mUser, roomID: previousUserData.mRoomId!) {
+                mPreviousUserData.append(previousUserData)
             }
-        }) {
-            
-            API.user.observeUserDataWithDate(date: lastMonth) { (previousUserData) in
-                self.mPreviousUserData.append(previousUserData)
+        }
+        
+        API.user.observeUserDataWithDate(date: currentMonth) { [self] (userData) in
+            if checkStillExist(user: mUser, roomID: userData.mRoomId!) {
+                mUserData.append(userData)
             }
-            
-            API.user.observeUserDataWithDate(date: currentMonth) { (userData) in
-                self.mUserData.append(userData)
-                if self.mUserData.count == 6 {
-                    self.calculateWith(previousUserData: self.mPreviousUserData, userData: self.mUserData)
-                    self.recievedInit()
-                    completion()
-                }
+            if mUserData.count == mUser.count {
+                calculateWith(previousUserData: mPreviousUserData, userData: mUserData)
+                recievedInit()
+                completion()
             }
         }
     }
     
     func recievedInit() {
-        for i in 0..<6 {
+        for i in 0..<mUser.count {
             if mUserData[i].mState! {
                 mRecieved! += mTotalOfEachRoom[i]
             }
@@ -84,73 +97,47 @@ class Manage {
     }
     
     func removePreviousData() {
+        mUser.removeAll()
         mUserData.removeAll()
         mPreviousUserData.removeAll()
+        
         mWaterFeesOfEachRoom.removeAll()
         mElecFeesOfEachRoom.removeAll()
         mTotalOfEachRoom.removeAll()
         mPaperForEachRoom.removeAll()
+        mRoomFees.removeAll()
+        
         mTotalBalance = 0
         mTotalBalanceOfMonth = 0
         mRecieved = 0
         mTotalFees = 0
     }
-    
+    // form roomID: Floor_Number
     func transferRoomID(roomID: String) -> String {
-        switch roomID {
-        case "p1_1":
-            return "phòng 1 tầng 1"
-        case "p3_1":
-            return "phòng 3 tầng 1"
-        case "p1_2":
-            return "phòng 1 tầng 2"
-        case "p2_2":
-            return "phòng 2 tầng 2"
-        case "p3_2":
-            return "phòng 3 tầng 2"
-        case "p4_2":
-            return "phòng 4 tầng 2"
-        default:
-            return "error"
+        var i = 1, f = 0, n = 0
+        while let a = Int(roomID.prefix(i)) {
+            i += 1
+            f = a
         }
+        i = 1
+        while let a = Int(roomID.suffix(i)) {
+            i += 1
+            n = a
+        }
+        return "tầng " + String(f) + " phòng " + String(n)
     }
     
     func regconizeUserById(id: String) -> Int {
-        switch id {
-        case "p1_1":
-            return 0
-        case "p1_2":
-            return 1
-        case "p2_2":
-            return 2
-        case "p3_1":
-            return 3
-        case "p3_2":
-            return 4
-        case "p4_2":
-            return 5
-        default:
-            return -1
+        for i in 0..<mUser.count {
+            if id == mUser[i].mRoomId {
+                return i
+            }
         }
+        return -1 // error
     }
     
     func reconizeIdByNumber(idNumber: Int) -> String {
-        switch idNumber {
-        case 0 :
-            return "p1_1"
-        case 1:
-            return "p1_2"
-        case 2:
-            return "p2_2"
-        case 3:
-            return "p3_1"
-        case 4:
-            return "p3_2"
-        case 5:
-            return "p4_2"
-        default:
-            return ""
-        }
+        return mUser[idNumber].mRoomId!
     }
     
     func setUserStateByIdNumber(idNumber: Int) {
@@ -170,12 +157,15 @@ class Manage {
     
     func calculateWith(previousUserData: [UserData], userData: [UserData])  {
         for i in 0..<userData.count {
-            let elecUsed = (userData[i].mElecValue! - previousUserData[i].mElecValue!) * mElecFees
-            let waterUsed = (userData[i].mWaterValue! - previousUserData[i].mWaterValue!) * mWaterFees
-            let sum = elecUsed + waterUsed + mRoomFees[i] + mOtherFees
-            
-            mElecFeesOfEachRoom.append(elecUsed)
-            mWaterFeesOfEachRoom.append(waterUsed)
+            var sum = 0
+            if (userData[i].mElecValue != 0) {
+                let elecUsed = (userData[i].mElecValue! - previousUserData[i].mElecValue!) * mElecFees
+                let waterUsed = (userData[i].mWaterValue! - previousUserData[i].mWaterValue!) * mWaterFees
+                sum = elecUsed + waterUsed + mRoomFees[i] + mOtherFees
+                
+                mElecFeesOfEachRoom.append(elecUsed)
+                mWaterFeesOfEachRoom.append(waterUsed)
+            }
             mTotalOfEachRoom.append(sum)
         }
         mTotalBalanceOfMonth = mTotalOfEachRoom.reduce(0, +)
@@ -198,7 +188,7 @@ class Manage {
     func getTotalOfRoomWithID(id: String) -> Int {
         return mTotalOfEachRoom[regconizeUserById(id: id)]
     }
-    
+
     func getTotalOfEachRoom() -> [Int] {
         return mTotalOfEachRoom
     }
@@ -208,16 +198,14 @@ class Manage {
     
     func getAllPaper() -> String {
         var paper = ""
-        for i in 0..<6 {
-       
-            
-        var mTotalOfEachRoomRounded = Int(round(Double(mTotalOfEachRoom[i]) / 1000) * 1000)
-        if mUserData[i].mRoomId == "p1_1" {
-            mTotalOfEachRoomRounded += 70000
-        }
-            
-        var paperForEachRoom = """
-            
+        for i in 0..<mPreviousUserData.count {
+            var mTotalOfEachRoomRounded = Int(round(Double(mTotalOfEachRoom[i]) / 1000) * 1000)
+            if mUserData[i].mWifi! {
+                mTotalOfEachRoomRounded += 70000
+            }
+                
+            var paperForEachRoom = """
+
                                         Phiếu thu tiền \(transferRoomID(roomID: mUserData[i].mRoomId!))
                                          ---------- @@ ----------
             
@@ -233,13 +221,15 @@ class Manage {
                             + Tiêu thụ: \(mUserData[i].mWaterValue! - mPreviousUserData[i].mWaterValue!) x \(mWaterFees) = \(mWaterFeesOfEachRoom[i])
             
                         - Tiền rác: \(mOtherFees)
-                        - TỔNG CỘNG: \((mTotalOfEachRoomRounded as NSNumber).transferToCurrency)
-                                (Ghi chú: điện: 3500/kW, nước: 5000/khối)
             """
-            
-            if mUserData[i].mRoomId == "p1_1" {
-                paperForEachRoom += "\n\t\t - Tiền wifi: 70 000"
+            if mUserData[i].mWifi! {
+                paperForEachRoom += "\n            - Tiền wifi: 70 000"
             }
+            paperForEachRoom += """
+            \n            - TỔNG CỘNG: \((mTotalOfEachRoomRounded as NSNumber).transferToCurrency)
+                                (Ghi chú: điện: 3500/kW, nước: 5000/khối)
+
+            """
             mPaperForEachRoom.append(paperForEachRoom)
             paper += paperForEachRoom
         }

@@ -8,9 +8,10 @@ target 'HOME' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'FoldingCell'
-  pod 'NVActivityIndicatorView'
+  pod 'NVActivityIndicatorView/Extended'
   pod 'M13Checkbox'
   pod 'SCLAlertView'
+  pod 'IQKeyboardManagerSwift'
   # Pods for HOME
 
 end

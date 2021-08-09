@@ -10,6 +10,12 @@ import UIKit
 import Firebase
 import ESTabBarController_swift
 import UserNotifications
+import FirebaseDatabase
+import IQKeyboardManagerSwift
+import NVActivityIndicatorView
+
+
+var BASE_URL: DatabaseReference?
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate {
@@ -17,13 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-               
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
         let introController = IntroViewController()
         window?.rootViewController = introController
         FirebaseApp.configure()
+        IQKeyboardManager.shared.enable = true
+        BASE_URL = Database.database().reference()
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert, .sound]) { (isSuccess, error) in
             if error != nil {

@@ -42,4 +42,10 @@ class UserStateTableViewCell: UITableViewCell {
         }
         self.buttonAction?(sender)
     }
+    
+    override func prepareForReuse() {
+        checkBox.checkState = .unchecked
+        mRoomId.text = ""
+        mRoomTotalValue.text = ""
+    }
 }

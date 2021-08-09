@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="195" id="KGk-i7-Jjw" customClass="CellUser" customModule="HOME" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="195"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="195"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdD-qs-I3d">
+                        <rect key="frame" x="15" y="5" width="0.0" height="185"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Water" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBK-kN-Wpi">
+                        <rect key="frame" x="25" y="104.5" width="45.5" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Electricity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gR-PZ-EfS">
+                        <rect key="frame" x="25" y="55.5" width="80" height="20.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="eem-sZ-Llp"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Previous Value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sBV-UO-g2y" customClass="BaseNumberInput" customModule="HOME" customModuleProvider="target">
+                        <rect key="frame" x="113" y="98" width="120" height="34"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wifi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfG-Gz-LdZ">
+                        <rect key="frame" x="25" y="152" width="30" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Previous Value" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BRb-xh-oxN" customClass="BaseNumberInput" customModule="HOME" customModuleProvider="target">
+                        <rect key="frame" x="113" y="49" width="120" height="34"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="ioD-SP-gAR"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                    </textField>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pi1-mP-ykg">
+                        <rect key="frame" x="113" y="147" width="51" height="31"/>
+                        <connections>
+                            <action selector="mWifi:" destination="KGk-i7-Jjw" eventType="valueChanged" id="3Sk-9D-5gb"/>
+                        </connections>
+                    </switch>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room 1.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qp3-3f-rdH">
+                        <rect key="frame" x="25" y="15" width="67" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="qp3-3f-rdH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="0nP-ip-YEx"/>
+                    <constraint firstItem="jfG-Gz-LdZ" firstAttribute="leading" secondItem="zBK-kN-Wpi" secondAttribute="leading" id="2v4-Cs-pMV"/>
+                    <constraint firstItem="zBK-kN-Wpi" firstAttribute="centerY" secondItem="sBV-UO-g2y" secondAttribute="centerY" id="60b-5L-y9H"/>
+                    <constraint firstItem="0gR-PZ-EfS" firstAttribute="top" secondItem="qp3-3f-rdH" secondAttribute="bottom" constant="20" id="6BV-A5-ugC"/>
+                    <constraint firstItem="TdD-qs-I3d" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="8lZ-5t-w3Q"/>
+                    <constraint firstItem="zBK-kN-Wpi" firstAttribute="leading" secondItem="0gR-PZ-EfS" secondAttribute="leading" id="8v5-Iu-g7m"/>
+                    <constraint firstItem="BRb-xh-oxN" firstAttribute="trailing" secondItem="sBV-UO-g2y" secondAttribute="trailing" id="IDC-kN-QkM"/>
+                    <constraint firstItem="sBV-UO-g2y" firstAttribute="top" secondItem="BRb-xh-oxN" secondAttribute="bottom" constant="15" id="JBC-Y9-s3g"/>
+                    <constraint firstAttribute="bottom" secondItem="TdD-qs-I3d" secondAttribute="bottom" constant="5" id="Lnn-eZ-bw0"/>
+                    <constraint firstItem="TdD-qs-I3d" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Nub-LT-Op8"/>
+                    <constraint firstItem="BRb-xh-oxN" firstAttribute="leading" secondItem="0gR-PZ-EfS" secondAttribute="trailing" constant="8" id="bMC-zO-b0q"/>
+                    <constraint firstAttribute="trailing" secondItem="TdD-qs-I3d" secondAttribute="trailing" constant="15" id="f7v-tl-6eI"/>
+                    <constraint firstItem="qp3-3f-rdH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="gVw-wy-Hzj"/>
+                    <constraint firstItem="0gR-PZ-EfS" firstAttribute="centerY" secondItem="BRb-xh-oxN" secondAttribute="centerY" id="jjl-MQ-vjt"/>
+                    <constraint firstItem="Pi1-mP-ykg" firstAttribute="top" secondItem="sBV-UO-g2y" secondAttribute="bottom" constant="15" id="laL-S9-hqi"/>
+                    <constraint firstAttribute="trailing" secondItem="BRb-xh-oxN" secondAttribute="trailing" constant="25" id="pHN-FS-ilb"/>
+                    <constraint firstItem="Pi1-mP-ykg" firstAttribute="leading" secondItem="sBV-UO-g2y" secondAttribute="leading" id="pjM-4o-u2a"/>
+                    <constraint firstItem="jfG-Gz-LdZ" firstAttribute="centerY" secondItem="Pi1-mP-ykg" secondAttribute="centerY" id="taX-n6-w2w"/>
+                    <constraint firstItem="BRb-xh-oxN" firstAttribute="leading" secondItem="sBV-UO-g2y" secondAttribute="leading" id="veH-5N-NM2"/>
+                    <constraint firstItem="qp3-3f-rdH" firstAttribute="leading" secondItem="0gR-PZ-EfS" secondAttribute="leading" id="wKm-AP-t40"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cellLayer" destination="TdD-qs-I3d" id="zFx-8Q-PyV"/>
+                <outlet property="mElec" destination="BRb-xh-oxN" id="Sto-kb-y5L"/>
+                <outlet property="mWater" destination="sBV-UO-g2y" id="LHu-r3-2VR"/>
+                <outlet property="outWifi" destination="Pi1-mP-ykg" id="W7g-06-YaA"/>
+                <outlet property="roomID" destination="qp3-3f-rdH" id="yR1-Ok-gZm"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="128.23660714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -42,20 +42,21 @@ class HomeViewController: BaseViewController, NVActivityIndicatorViewable {
             NVActivityIndicatorPresenter.sharedInstance.setMessage("Loading Success")
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
                 self.stopAnimating()
+                self.tableView.reloadData()
             }
         }
     }
     
     fileprivate func setupIndicator() {
         let size = CGSize(width: 80, height: 80)
-        let indicatorType = NVActivityIndicatorType.init(rawValue: 29)
+        let indicatorType = NVActivityIndicatorType.ballPulse
         startAnimating(size, message: "Loading...", messageFont: UIFont.boldSystemFont(ofSize: 20), type: indicatorType, color: .red, padding: 2, displayTimeThreshold: 2, minimumDisplayTime: 2, backgroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), textColor: .red, fadeInAnimation: nil)
     }
     
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.separatorColor = .clear
+        tableView.separatorStyle = .none
         cellHeights = Array(repeating: Const.closeCellHeight, count: Const.rowsCount)
         tableView.estimatedRowHeight = Const.closeCellHeight
         tableView.rowHeight = UITableView.automaticDimension
@@ -67,7 +68,7 @@ class HomeViewController: BaseViewController, NVActivityIndicatorViewable {
     }
 }
 
-
+ 
 
 // MARK: - FoldingCellSetup
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
